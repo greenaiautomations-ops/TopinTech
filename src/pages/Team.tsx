@@ -30,10 +30,10 @@ const Team = () => {
   return (
     <>
       <Helmet>
-        <title>Our Team - Green AI | Meet the Experts</title>
+        <title>Our Team - Top in Tech | Meet the Experts</title>
         <meta
           name="description"
-          content="Meet the team behind Green AI. AI strategists, engineers, and customer success experts dedicated to your success."
+          content="Meet the team behind Top in Tech. AI strategists, engineers, and customer success experts dedicated to your success."
         />
       </Helmet>
       <Layout>

@@ -47,7 +47,7 @@ export function HeroSection() {
             Automate Smarter.{" "}
             <span className="gradient-text">Grow Faster.</span>
             <br />
-            With Green AI.
+            With Top in Tech.
           </h1>
 
           {/* Subheadline */}

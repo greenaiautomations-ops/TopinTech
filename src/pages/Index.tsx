@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Green AI - AI Automation Agency | Marburg, Germany</title>
+        <title>Top in Tech - AI Automation Agency | Marburg, Germany</title>
         <meta
           name="description"
           content="AI assistants, voice agents, and intelligent automation that save time, cut costs, and scale your business. Based in Marburg, Germany."

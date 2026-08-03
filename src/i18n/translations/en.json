@@ -11,7 +11,7 @@
     "badge": "AI Automation Agency",
     "headline1": "Automate Smarter.",
     "headline2": "Grow Faster.",
-    "headline3": "With Green AI.",
+    "headline3": "With Top in Tech.",
     "subheadline": "AI assistants, voice agents, and intelligent automation that save time, cut costs, and scale your business — without complexity.",
     "saveTime": "Save Time",
     "reduceCosts": "Reduce Costs",
@@ -90,14 +90,14 @@
     "exploreServices": "Explore Our Services"
   },
   "about": {
-    "pageTitle": "About Us - Green AI | AI Automation Agency",
-    "pageDescription": "Learn about Green AI, the AI Automation Agency helping businesses stop wasting time on repetitive work and start using AI in a practical, profitable way.",
+    "pageTitle": "About Us - Top in Tech | AI Automation Agency",
+    "pageDescription": "Learn about Top in Tech, the AI Automation Agency helping businesses stop wasting time on repetitive work and start using AI in a practical, profitable way.",
     "title": "About",
-    "titleHighlight": "Green AI",
+    "titleHighlight": "Top in Tech",
     "subtitle": "Building practical, revenue-driven AI systems for real businesses",
     "storyTitle": "Our",
     "storyTitleHighlight": "Story",
-    "storyP1": "Green AI was founded to help businesses stop wasting time on repetitive work and start using AI in a practical, profitable way.",
+    "storyP1": "Top in Tech was founded to help businesses stop wasting time on repetitive work and start using AI in a practical, profitable way.",
     "storyP2": "We don't sell hype. We build real AI systems that work inside your business, delivering measurable results from day one.",
     "storyP3": "Based in Marburg, Germany, we combine German engineering precision with cutting-edge AI technology to create automation solutions that scale.",
     "missionTitle": "Our",
@@ -108,7 +108,7 @@
     "missionPowerful": "powerful",
     "missionEnd": "for every business.",
     "whyTitle": "Why",
-    "whyTitleHighlight": "Green AI",
+    "whyTitleHighlight": "Top in Tech",
     "whyGermany": "Germany-based (Marburg)",
     "whyGermanyDesc": "Local presence with global expertise",
     "whyCustom": "Custom automation, not templates",
@@ -127,7 +127,7 @@
     "valueTransparentDesc": "No black boxes. We explain everything we build and train your team to manage it independently."
   },
   "servicesPage": {
-    "pageTitle": "Our Services - Green AI | AI Automation Solutions",
+    "pageTitle": "Our Services - Top in Tech | AI Automation Solutions",
     "pageDescription": "AI Assistants, Voice Agents, Workflow Automation, Image & Video Generation, and AI Consultancy. Explore our full range of AI automation services.",
     "title": "Our",
     "titleHighlight": "Services",
@@ -230,8 +230,8 @@
     }
   },
   "team": {
-    "pageTitle": "Our Team - Green AI | Meet the Experts",
-    "pageDescription": "Meet the team behind Green AI. AI strategists, engineers, and customer success experts dedicated to your success.",
+    "pageTitle": "Our Team - Top in Tech | Meet the Experts",
+    "pageDescription": "Meet the team behind Top in Tech. AI strategists, engineers, and customer success experts dedicated to your success.",
     "title": "Meet Our",
     "titleHighlight": "Team",
     "subtitle": "The experts behind your AI transformation",
@@ -265,7 +265,7 @@
     }
   },
   "contact": {
-    "pageTitle": "Contact Us - Green AI | Get Your Free AI Audit",
+    "pageTitle": "Contact Us - Top in Tech | Get Your Free AI Audit",
     "pageDescription": "Book your free AI automation consultation. We'll identify 3 automations that can save you time and money. Based in Marburg, Germany.",
     "badge": "Free AI Audit Included",
     "title": "Let's",

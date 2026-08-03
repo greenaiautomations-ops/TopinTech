@@ -197,7 +197,7 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Our Services - Green AI | AI Automation Solutions</title>
+        <title>Our Services - Top in Tech | AI Automation Solutions</title>
         <meta
           name="description"
           content="AI Assistants, Voice Agents, Workflow Automation, Image & Video Generation, and AI Consultancy. Explore our full range of AI automation services."

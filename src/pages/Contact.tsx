@@ -95,7 +95,7 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us - Green AI | Get Your Free AI Audit</title>
+        <title>Contact Us - Top in Tech | Get Your Free AI Audit</title>
         <meta
           name="description"
           content="Book your free AI automation consultation. We'll identify 3 automations that can save you time and money. Based in Marburg, Germany."

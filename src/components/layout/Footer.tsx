@@ -153,7 +153,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Green AI. {t("footer.allRights")}
+            © {new Date().getFullYear()} Top in Tech. {t("footer.allRights")}
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             {t("footer.madeWith")} <Heart className="w-3 h-3 text-primary fill-primary" /> {t("footer.inGermany")}

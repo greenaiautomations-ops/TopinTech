@@ -29,10 +29,10 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Us - Green AI | AI Automation Agency</title>
+        <title>About Us - Top in Tech | AI Automation Agency</title>
         <meta
           name="description"
-          content="Learn about Green AI, the AI Automation Agency helping businesses stop wasting time on repetitive work and start using AI in a practical, profitable way."
+          content="Learn about Top in Tech, the AI Automation Agency helping businesses stop wasting time on repetitive work and start using AI in a practical, profitable way."
         />
       </Helmet>
       <Layout>
@@ -42,7 +42,7 @@ const About = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-                About <span className="gradient-text">Green AI</span>
+                About <span className="gradient-text">Top in Tech</span>
               </h1>
               <p className="text-xl text-muted-foreground opacity-0 animate-fade-in animation-delay-200">
                 Building practical, revenue-driven AI systems for real businesses
@@ -61,7 +61,7 @@ const About = () => {
                     Our <span className="gradient-text">Story</span>
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Green AI was founded to help businesses stop wasting time on
+                    Top in Tech was founded to help businesses stop wasting time on
                     repetitive work and start using AI in a practical, profitable
                     way.
                   </p>
@@ -109,7 +109,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">
-                Why <span className="gradient-text">Green AI</span>?
+                Why <span className="gradient-text">Top in Tech</span>?
               </h2>
 
               <div className="grid sm:grid-cols-2 gap-6">

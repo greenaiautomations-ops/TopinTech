@@ -18,7 +18,7 @@ export function Logo({ className, size = "md" }: LogoProps) {
     <Link to="/" className={cn("flex items-center", className)}>
       <img 
         src={logoImage} 
-        alt="Green AI Solutions" 
+        alt="Top in Tech Solutions" 
         className={cn("w-auto object-contain", sizes[size])}
       />
     </Link>

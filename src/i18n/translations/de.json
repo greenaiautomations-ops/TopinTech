@@ -1,0 +1,343 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Leistungen",
+    "team": "Team",
+    "contact": "Kontakt",
+    "getFreeAudit": "Kostenloses KI-Audit"
+  },
+  "hero": {
+    "badge": "KI-Automatisierungsagentur",
+    "headline1": "Smarter automatisieren.",
+    "headline2": "Schneller wachsen.",
+    "headline3": "Mit Green AI.",
+    "subheadline": "KI-Assistenten, Sprachagenten und intelligente Automatisierung, die Zeit sparen, Kosten senken und Ihr Unternehmen skalieren — ohne Komplexität.",
+    "saveTime": "Zeit sparen",
+    "reduceCosts": "Kosten senken",
+    "scaleEffortlessly": "Mühelos skalieren",
+    "getFreeAudit": "Kostenloses KI-Audit",
+    "talkToExpert": "Mit KI-Experten sprechen"
+  },
+  "services": {
+    "title": "Was wir",
+    "titleHighlight": "entwickeln",
+    "subtitle": "KI-Lösungen, die tatsächlich für Ihr Unternehmen funktionieren. Kein Hype, nur Ergebnisse.",
+    "learnMore": "Mehr erfahren",
+    "aiAssistants": {
+      "title": "KI-Assistenten",
+      "description": "Maßgeschneiderte KI-Teams für Marketing, Finanzen & HR, die 24/7 arbeiten"
+    },
+    "voiceAgents": {
+      "title": "KI-Sprachagenten",
+      "description": "Menschenähnliche Anrufer für Rezeption und Außendienst"
+    },
+    "workflowAutomation": {
+      "title": "Workflow-Automatisierung",
+      "description": "End-to-End-Automatisierung für Fitnessstudios, Kliniken & Immobilienmakler"
+    },
+    "imageVideo": {
+      "title": "KI-Bild & Video",
+      "description": "Hochwertige KI-Visuals für Marketing & Branding"
+    },
+    "consultancy": {
+      "title": "KI-Beratung",
+      "description": "KI-Readiness-Audit, Tool-Auswahl & Implementierung"
+    }
+  },
+  "stats": {
+    "title": "Unsere",
+    "titleHighlight": "Wirkung",
+    "subtitle": "Echte Zahlen von echten Unternehmen, denen wir bei der Transformation geholfen haben",
+    "assistantsDeployed": "KI-Assistenten implementiert",
+    "voiceAgentsLive": "Sprachagenten live",
+    "workflowAutomations": "Workflow-Automatisierungen erstellt",
+    "imagesGenerated": "KI-Bilder & Videos generiert"
+  },
+  "tools": {
+    "tagline": "Tool-agnostisch. Business-first.",
+    "taglineHighlight": "Wir wählen, was am besten zu Ihnen passt."
+  },
+  "audit": {
+    "badge": "Kostenloses KI-Audit",
+    "title": "Holen Sie sich Ihr kostenloses",
+    "titleHighlight": "KI-Automatisierungs-Audit",
+    "subtitle": "Lassen Sie unsere KI-Experten Ihre Geschäftsprozesse analysieren und die besten Automatisierungsmöglichkeiten für sofortigen ROI identifizieren.",
+    "benefit1": "3 Automatisierungen identifizieren, die Ihnen Zeit & Geld sparen",
+    "benefit2": "Einen personalisierten KI-Implementierungsfahrplan erhalten",
+    "benefit3": "Ihr ROI-Potenzial mit KI entdecken",
+    "namePlaceholder": "Ihr Name",
+    "emailPlaceholder": "Geschäftliche E-Mail",
+    "companyPlaceholder": "Firmenname (Optional)",
+    "submit": "Mein kostenloses Audit anfordern",
+    "sending": "Wird gesendet...",
+    "thankYou": "Vielen Dank!",
+    "thankYouMessage": "Wir senden Ihr personalisiertes KI-Audit innerhalb von 24 Stunden an {email}.",
+    "noSpam": "Kein Spam. Jederzeit abbestellbar.",
+    "missingInfo": "Fehlende Informationen",
+    "fillNameEmail": "Bitte füllen Sie Ihren Namen und Ihre E-Mail aus.",
+    "requestReceived": "Anfrage erhalten!",
+    "auditSent": "Wir senden Ihr kostenloses KI-Audit innerhalb von 24 Stunden.",
+    "error": "Etwas ist schief gelaufen",
+    "tryAgain": "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt."
+  },
+  "cta": {
+    "title": "Bereit,",
+    "titleHighlight": "Ihr Unternehmen zu transformieren",
+    "titleEnd": "mit KI?",
+    "subtitle": "Schließen Sie sich über 100 Unternehmen an, die bereits Zeit und Geld mit unseren KI-Automatisierungslösungen sparen.",
+    "bookConsultation": "Kostenlose Beratung buchen",
+    "exploreServices": "Unsere Leistungen erkunden"
+  },
+  "about": {
+    "pageTitle": "Über uns - Green AI | KI-Automatisierungsagentur",
+    "pageDescription": "Erfahren Sie mehr über Green AI, die KI-Automatisierungsagentur, die Unternehmen hilft, keine Zeit mehr mit repetitiver Arbeit zu verschwenden und KI praktisch und profitabel einzusetzen.",
+    "title": "Über",
+    "titleHighlight": "Green AI",
+    "subtitle": "Wir entwickeln praktische, umsatzorientierte KI-Systeme für echte Unternehmen",
+    "storyTitle": "Unsere",
+    "storyTitleHighlight": "Geschichte",
+    "storyP1": "Green AI wurde gegründet, um Unternehmen zu helfen, keine Zeit mehr mit repetitiver Arbeit zu verschwenden und KI praktisch und profitabel einzusetzen.",
+    "storyP2": "Wir verkaufen keinen Hype. Wir bauen echte KI-Systeme, die in Ihrem Unternehmen funktionieren und vom ersten Tag an messbare Ergebnisse liefern.",
+    "storyP3": "Mit Sitz in Marburg, Deutschland, kombinieren wir deutsche Ingenieurskunst mit modernster KI-Technologie, um skalierbare Automatisierungslösungen zu schaffen.",
+    "missionTitle": "Unsere",
+    "missionTitleHighlight": "Mission",
+    "missionText": "KI-Automatisierung",
+    "missionSimple": "einfach",
+    "missionAffordable": "erschwinglich",
+    "missionPowerful": "leistungsstark",
+    "missionEnd": "für jedes Unternehmen zu machen.",
+    "whyTitle": "Warum",
+    "whyTitleHighlight": "Green AI",
+    "whyGermany": "Standort Deutschland (Marburg)",
+    "whyGermanyDesc": "Lokale Präsenz mit globaler Expertise",
+    "whyCustom": "Maßgeschneiderte Automatisierung, keine Vorlagen",
+    "whyCustomDesc": "Individuelle Lösungen für Ihre einzigartigen Anforderungen",
+    "whySecure": "Sichere & konforme Systeme",
+    "whySecureDesc": "DSGVO-konform und Enterprise-Grade-Sicherheit",
+    "whyROI": "ROI-fokussierte Lösungen",
+    "whyROIDesc": "Messbare Ergebnisse, die Ihr Geschäftsergebnis beeinflussen",
+    "valuesTitle": "Unsere",
+    "valuesTitleHighlight": "Werte",
+    "valuePractical": "Praktisch statt perfekt",
+    "valuePracticalDesc": "Wir konzentrieren uns auf Lösungen, die heute funktionieren, nicht auf theoretische KI, die beeindruckend klingt, aber nichts liefert.",
+    "valueResults": "Ergebnisse zuerst",
+    "valueResultsDesc": "Jedes Projekt beginnt mit einem klaren ROI-Ziel. Wenn wir keinen Mehrwert liefern können, übernehmen wir es nicht.",
+    "valueTransparent": "Transparente Partnerschaft",
+    "valueTransparentDesc": "Keine Black Boxes. Wir erklären alles, was wir bauen, und schulen Ihr Team, es selbstständig zu verwalten."
+  },
+  "servicesPage": {
+    "pageTitle": "Unsere Leistungen - Green AI | KI-Automatisierungslösungen",
+    "pageDescription": "KI-Assistenten, Sprachagenten, Workflow-Automatisierung, Bild- & Videogenerierung und KI-Beratung. Entdecken Sie unser vollständiges Angebot an KI-Automatisierungsleistungen.",
+    "title": "Unsere",
+    "titleHighlight": "Leistungen",
+    "subtitle": "KI-Lösungen, die tatsächlich für Ihr Unternehmen funktionieren. Kein Hype, nur Ergebnisse.",
+    "realUseCases": "Echte Anwendungsfälle",
+    "readyTitle": "Bereit loszulegen?",
+    "readySubtitle": "Buchen Sie eine kostenlose Beratung und entdecken Sie, wie KI Ihr Unternehmen transformieren kann.",
+    "bookFreeConsultation": "Kostenlose Beratung buchen",
+    "assistants": {
+      "title": "KI-Assistenten",
+      "subtitle": "Maßgeschneiderte KI-Teams, die auf Ihren Geschäftsdaten trainiert sind und 24/7 arbeiten",
+      "marketing": "KI-Marketing-Team",
+      "marketingF1": "Erstellt Kampagnen",
+      "marketingF2": "Schreibt Anzeigen & E-Mails",
+      "marketingF3": "Analysiert Performance",
+      "finance": "KI-Finanz-Team",
+      "financeF1": "Rechnungsverfolgung",
+      "financeF2": "Ausgabenanalyse",
+      "financeF3": "Prognosen & Berichte",
+      "hr": "KI-HR-Team",
+      "hrF1": "Lebenslauf-Screening",
+      "hrF2": "Terminplanung für Interviews",
+      "hrF3": "Mitarbeiter-Q&A-Bot",
+      "useCase1": "Marketing-Agentur spart 20+ Stunden/Woche bei Content & Reporting",
+      "useCase2": "Startup reduziert Finanzfehler um 65%",
+      "useCase3": "HR-Einstellungszeit von 14 auf 4 Tage reduziert",
+      "benefit1": "60–80% Zeit sparen",
+      "benefit2": "Kosten um 30–50% senken",
+      "benefit3": "Effizienz um das 2–3-fache steigern"
+    },
+    "voice": {
+      "title": "KI-Sprachagenten",
+      "subtitle": "Menschenähnliche KI-Anrufer, die sprechen, verstehen und handeln",
+      "receptionist": "KI-Rezeptionist",
+      "receptionistF1": "Beantwortet Anrufe 24/7",
+      "receptionistF2": "Bucht Termine",
+      "receptionistF3": "Beantwortet FAQs",
+      "outbound": "Outbound-Sprachagenten",
+      "outboundF1": "Lead-Follow-ups",
+      "outboundF2": "Terminerinnerungen",
+      "outboundF3": "Verkaufsgespräche",
+      "useCase1": "Arztpraxis bearbeitet 100% der verpassten Anrufe",
+      "useCase2": "Immobilienfirma steigert Lead-Antwortrate um das 3-fache",
+      "useCase3": "Fitnessstudio reduziert No-Shows um 40%",
+      "benefit1": "Keinen Anruf verpassen",
+      "benefit2": "€2.000–€5.000/Monat an Personal sparen",
+      "benefit3": "Sofortige Reaktionszeit"
+    },
+    "automation": {
+      "title": "KI-Workflow-Automatisierung + Vibe Coding",
+      "subtitle": "End-to-End-Automatisierung für Branchen, die es am meisten brauchen",
+      "industries": "Branchen, die wir automatisieren",
+      "industriesF1": "🏋️ Fitnessstudios",
+      "industriesF2": "🏠 Immobilienmakler",
+      "industriesF3": "🏥 Arztpraxen & Krankenhäuser",
+      "whatWeAutomate": "Was wir automatisieren",
+      "automateF1": "Lead-Erfassung → CRM",
+      "automateF2": "Buchung → Bestätigung → Erinnerung",
+      "automateF3": "Zahlungen → Rechnungen → Berichte",
+      "vibeCoding": "Vibe Coding",
+      "vibeF1": "Websites",
+      "vibeF2": "Web-Apps",
+      "vibeF3": "Interne Software — schnell, sauber, skalierbar",
+      "useCase1": "Fitnessstudio-Onboarding um 70% verkürzt",
+      "useCase2": "Immobilienmakler schließt 25% mehr Leads ab",
+      "useCase3": "Kliniken reduzieren Verwaltungsaufwand um 50%",
+      "benefit1": "Null manuelle Arbeit",
+      "benefit2": "Skalierbare Systeme",
+      "benefit3": "Schnelleres Wachstum"
+    },
+    "media": {
+      "title": "KI-Bild- & Videogenerierung",
+      "subtitle": "Hochwertige KI-Visuals für Marketing & Branding",
+      "whatWeCreate": "Was wir erstellen",
+      "createF1": "Produktbilder",
+      "createF2": "Social-Media-Creatives",
+      "createF3": "Promo-Videos",
+      "createF4": "KI-Avatare",
+      "useCase1": "E-Commerce-Marke spart €3.000/Monat bei Creatives",
+      "useCase2": "Marketing-Team produziert 10x mehr Content",
+      "useCase3": "Anzeigen-CTR verbessert sich um 35%",
+      "benefit1": "Keine Designer erforderlich",
+      "benefit2": "Schnellere Content-Erstellung",
+      "benefit3": "Massive Kosteneinsparungen"
+    },
+    "consultancy": {
+      "title": "KI-Beratung",
+      "subtitle": "Strategische Begleitung für Ihre KI-Reise",
+      "whatWeDo": "Was wir tun",
+      "doF1": "KI-Readiness-Audit",
+      "doF2": "Tool-Auswahl",
+      "doF3": "Automatisierungs-Roadmap",
+      "doF4": "Implementierungsbegleitung",
+      "useCase1": "KMU identifiziert €50k/Jahr Einsparungen",
+      "useCase2": "Unternehmen vermeidet falsche KI-Tools",
+      "useCase3": "Schnellere KI-Einführung mit geringerem Risiko",
+      "benefit1": "Klare Strategie",
+      "benefit2": "Sichere Einrichtung",
+      "benefit3": "Langfristiger ROI"
+    }
+  },
+  "team": {
+    "pageTitle": "Unser Team - Green AI | Lernen Sie die Experten kennen",
+    "pageDescription": "Lernen Sie das Team hinter Green AI kennen. KI-Strategen, Ingenieure und Kundenerfolgexperten, die sich Ihrem Erfolg widmen.",
+    "title": "Lernen Sie unser",
+    "titleHighlight": "Team",
+    "subtitle": "Die Experten hinter Ihrer KI-Transformation",
+    "joinTitle": "Möchten Sie unserem",
+    "joinTitleHighlight": "Team beitreten",
+    "joinSubtitle": "Wir suchen immer talentierte Menschen, die sich für KI und Automatisierung begeistern. Wenn das auf Sie zutrifft, würden wir gerne von Ihnen hören.",
+    "zoraiz": {
+      "name": "Zoraiz Fazal",
+      "role": "Gründer",
+      "description": "KI-Stratege und Automatisierungsarchitekt mit Leidenschaft für den Aufbau praktischer, skalierbarer KI-Systeme, die echte Geschäftsergebnisse erzielen."
+    },
+    "mahneem": {
+      "name": "Mahneem Fazal",
+      "role": "Geschäftsführerin",
+      "description": "Leitet Betrieb und Wachstum und stellt sicher, dass jeder Kunde strukturierte Umsetzung und messbare Ergebnisse erhält."
+    },
+    "sibtain": {
+      "name": "Sibtain Muhammad",
+      "role": "Cloud Solutions Lead",
+      "description": "Experte für Cloud-Infrastruktur, Sicherheit und skalierbare KI-Deployments."
+    },
+    "hammad": {
+      "name": "Hammad Khalid",
+      "role": "Backend Lead",
+      "description": "Spezialist für Backend-Systeme, APIs, Datenbanken und Automatisierungslogik."
+    },
+    "alina": {
+      "name": "Alina Schmidt",
+      "role": "Kundensupport",
+      "description": "Kundenerfolgmanagerin, die für reibungsloses Onboarding, Support und langfristige Zufriedenheit sorgt."
+    }
+  },
+  "contact": {
+    "pageTitle": "Kontakt - Green AI | Holen Sie sich Ihr kostenloses KI-Audit",
+    "pageDescription": "Buchen Sie Ihre kostenlose KI-Automatisierungsberatung. Wir identifizieren 3 Automatisierungen, die Ihnen Zeit und Geld sparen können. Mit Sitz in Marburg, Deutschland.",
+    "badge": "Kostenloses KI-Audit inklusive",
+    "title": "Lassen Sie uns",
+    "titleHighlight": "sprechen",
+    "subtitle": "Buchen Sie Ihre kostenlose KI-Automatisierungsberatung",
+    "getInTouch": "Kontaktieren Sie uns",
+    "getInTouchText": "Bereit, Ihr Unternehmen mit KI zu transformieren? Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden mit Ihrem kostenlosen KI-Automatisierungs-Audit bei Ihnen.",
+    "location": "Standort",
+    "address": "Bahnhofstraße 36, 35037 Marburg",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "whatToExpect": "Was Sie erwartet",
+    "expect1": "Kostenloses 30-minütiges Beratungsgespräch",
+    "expect2": "Personalisiertes KI-Automatisierungs-Audit",
+    "expect3": "3 umsetzbare Automatisierungsmöglichkeiten",
+    "expect4": "Klare ROI-Prognosen",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Ihr Name",
+      "email": "E-Mail",
+      "emailPlaceholder": "sie@unternehmen.de",
+      "company": "Unternehmen",
+      "companyPlaceholder": "Ihr Unternehmensname",
+      "service": "Interessierte Leistung",
+      "servicePlaceholder": "Wählen Sie eine Leistung",
+      "message": "Nachricht",
+      "messagePlaceholder": "Erzählen Sie uns von Ihrem Unternehmen und was Sie automatisieren möchten...",
+      "required": "*",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "privacy": "Wir respektieren Ihre Privatsphäre. Kein Spam, niemals."
+    },
+    "services": {
+      "assistants": "KI-Assistenten",
+      "voice": "KI-Sprachagenten",
+      "automation": "Workflow-Automatisierung",
+      "media": "KI-Bild & Video",
+      "consultancy": "KI-Beratung",
+      "other": "Sonstiges"
+    },
+    "success": {
+      "title": "Nachricht erhalten!",
+      "message": "Vielen Dank für Ihre Kontaktaufnahme. Wir melden uns innerhalb von 24 Stunden mit Ihrem kostenlosen KI-Audit bei Ihnen."
+    },
+    "errors": {
+      "missingInfo": "Fehlende Informationen",
+      "fillRequired": "Bitte füllen Sie alle erforderlichen Felder aus.",
+      "error": "Etwas ist schief gelaufen",
+      "tryAgain": "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt."
+    },
+    "toast": {
+      "success": "Nachricht gesendet!",
+      "successMessage": "Wir melden uns innerhalb von 24 Stunden bei Ihnen."
+    }
+  },
+  "footer": {
+    "tagline": "KI-Automatisierungsagentur, die praktische, umsatzorientierte KI-Systeme für echte Unternehmen entwickelt.",
+    "company": "Unternehmen",
+    "servicesTitle": "Leistungen",
+    "getInTouch": "Kontakt",
+    "madeWith": "Mit",
+    "inGermany": "in Deutschland gemacht",
+    "allRights": "Alle Rechte vorbehalten.",
+    "followUs": "Folgen Sie uns"
+  },
+  "theme": {
+    "light": "Hell",
+    "dark": "Dunkel",
+    "system": "System"
+  },
+  "language": {
+    "en": "English",
+    "de": "Deutsch"
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "team": "Team",
+    "contact": "Contact",
+    "getFreeAudit": "Get Free AI Audit"
+  },
+  "hero": {
+    "badge": "AI Automation Agency",
+    "headline1": "Automate Smarter.",
+    "headline2": "Grow Faster.",
+    "headline3": "With Green AI.",
+    "subheadline": "AI assistants, voice agents, and intelligent automation that save time, cut costs, and scale your business — without complexity.",
+    "saveTime": "Save Time",
+    "reduceCosts": "Reduce Costs",
+    "scaleEffortlessly": "Scale Effortlessly",
+    "getFreeAudit": "Get Free AI Audit",
+    "talkToExpert": "Talk to an AI Expert"
+  },
+  "services": {
+    "title": "What We",
+    "titleHighlight": "Build",
+    "subtitle": "AI solutions that actually work for your business. No hype, just results.",
+    "learnMore": "Learn more",
+    "aiAssistants": {
+      "title": "AI Assistants",
+      "description": "Custom AI teams for Marketing, Finance & HR that work 24/7"
+    },
+    "voiceAgents": {
+      "title": "AI Voice Agents",
+      "description": "Human-like callers for reception and outbound sales"
+    },
+    "workflowAutomation": {
+      "title": "Workflow Automation",
+      "description": "End-to-end automation for gyms, clinics & property dealers"
+    },
+    "imageVideo": {
+      "title": "AI Image & Video",
+      "description": "High-quality AI visuals for marketing & branding"
+    },
+    "consultancy": {
+      "title": "AI Consultancy",
+      "description": "AI readiness audit, tool selection & implementation"
+    }
+  },
+  "stats": {
+    "title": "Our",
+    "titleHighlight": "Impact",
+    "subtitle": "Real numbers from real businesses we've helped transform",
+    "assistantsDeployed": "AI Assistants Deployed",
+    "voiceAgentsLive": "Voice Agents Live",
+    "workflowAutomations": "Workflow Automations Built",
+    "imagesGenerated": "AI Images & Videos Generated"
+  },
+  "tools": {
+    "tagline": "Tool-agnostic. Business-first.",
+    "taglineHighlight": "We choose what fits you best."
+  },
+  "audit": {
+    "badge": "Free AI Audit",
+    "title": "Get Your Free",
+    "titleHighlight": "AI Automation Audit",
+    "subtitle": "Let our AI experts analyze your business processes and identify the best automation opportunities for immediate ROI.",
+    "benefit1": "Identify 3 automations that can save you time & money",
+    "benefit2": "Get a personalized AI implementation roadmap",
+    "benefit3": "Discover your ROI potential with AI",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Work Email",
+    "companyPlaceholder": "Company Name (Optional)",
+    "submit": "Get My Free Audit",
+    "sending": "Sending...",
+    "thankYou": "Thank You!",
+    "thankYouMessage": "We'll send your personalized AI audit to {email} within 24 hours.",
+    "noSpam": "No spam. Unsubscribe anytime.",
+    "missingInfo": "Missing information",
+    "fillNameEmail": "Please fill in your name and email.",
+    "requestReceived": "Request Received!",
+    "auditSent": "We'll send your free AI audit within 24 hours.",
+    "error": "Something went wrong",
+    "tryAgain": "Please try again or contact us directly."
+  },
+  "cta": {
+    "title": "Ready to",
+    "titleHighlight": "Transform Your Business",
+    "titleEnd": "with AI?",
+    "subtitle": "Join 100+ businesses already saving time and money with our AI automation solutions.",
+    "bookConsultation": "Book a Free Consultation",
+    "exploreServices": "Explore Our Services"
+  },
+  "about": {
+    "pageTitle": "About Us - Green AI | AI Automation Agency",
+    "pageDescription": "Learn about Green AI, the AI Automation Agency helping businesses stop wasting time on repetitive work and start using AI in a practical, profitable way.",
+    "title": "About",
+    "titleHighlight": "Green AI",
+    "subtitle": "Building practical, revenue-driven AI systems for real businesses",
+    "storyTitle": "Our",
+    "storyTitleHighlight": "Story",
+    "storyP1": "Green AI was founded to help businesses stop wasting time on repetitive work and start using AI in a practical, profitable way.",
+    "storyP2": "We don't sell hype. We build real AI systems that work inside your business, delivering measurable results from day one.",
+    "storyP3": "Based in Marburg, Germany, we combine German engineering precision with cutting-edge AI technology to create automation solutions that scale.",
+    "missionTitle": "Our",
+    "missionTitleHighlight": "Mission",
+    "missionText": "To make AI automation",
+    "missionSimple": "simple",
+    "missionAffordable": "affordable",
+    "missionPowerful": "powerful",
+    "missionEnd": "for every business.",
+    "whyTitle": "Why",
+    "whyTitleHighlight": "Green AI",
+    "whyGermany": "Germany-based (Marburg)",
+    "whyGermanyDesc": "Local presence with global expertise",
+    "whyCustom": "Custom automation, not templates",
+    "whyCustomDesc": "Tailored solutions for your unique needs",
+    "whySecure": "Secure & compliant systems",
+    "whySecureDesc": "GDPR-ready and enterprise-grade security",
+    "whyROI": "ROI-focused solutions",
+    "whyROIDesc": "Measurable results that impact your bottom line",
+    "valuesTitle": "Our",
+    "valuesTitleHighlight": "Values",
+    "valuePractical": "Practical over Perfect",
+    "valuePracticalDesc": "We focus on solutions that work today, not theoretical AI that sounds impressive but delivers nothing.",
+    "valueResults": "Results First",
+    "valueResultsDesc": "Every project starts with a clear ROI target. If we can't deliver value, we won't take it on.",
+    "valueTransparent": "Transparent Partnership",
+    "valueTransparentDesc": "No black boxes. We explain everything we build and train your team to manage it independently."
+  },
+  "servicesPage": {
+    "pageTitle": "Our Services - Green AI | AI Automation Solutions",
+    "pageDescription": "AI Assistants, Voice Agents, Workflow Automation, Image & Video Generation, and AI Consultancy. Explore our full range of AI automation services.",
+    "title": "Our",
+    "titleHighlight": "Services",
+    "subtitle": "AI solutions that actually work for your business. No hype, just results.",
+    "realUseCases": "Real Use Cases",
+    "readyTitle": "Ready to Get Started?",
+    "readySubtitle": "Book a free consultation and discover how AI can transform your business.",
+    "bookFreeConsultation": "Book Free Consultation",
+    "assistants": {
+      "title": "AI Assistants",
+      "subtitle": "Custom AI teams trained on your business data, working 24/7",
+      "marketing": "AI Marketing Team",
+      "marketingF1": "Creates campaigns",
+      "marketingF2": "Writes ads & emails",
+      "marketingF3": "Analyzes performance",
+      "finance": "AI Finance Team",
+      "financeF1": "Invoice tracking",
+      "financeF2": "Expense analysis",
+      "financeF3": "Forecasting & reports",
+      "hr": "AI HR Team",
+      "hrF1": "Resume screening",
+      "hrF2": "Interview scheduling",
+      "hrF3": "Employee Q&A bot",
+      "useCase1": "Marketing agency saves 20+ hours/week on content & reporting",
+      "useCase2": "Startup reduces finance errors by 65%",
+      "useCase3": "HR hiring time reduced from 14 days to 4 days",
+      "benefit1": "Save 60–80% time",
+      "benefit2": "Reduce costs by 30–50%",
+      "benefit3": "Increase efficiency by 2–3x"
+    },
+    "voice": {
+      "title": "AI Voice Agents",
+      "subtitle": "Human-like AI callers that talk, understand, and act",
+      "receptionist": "AI Receptionist",
+      "receptionistF1": "Answers calls 24/7",
+      "receptionistF2": "Books appointments",
+      "receptionistF3": "Answers FAQs",
+      "outbound": "Outbound Voice Agents",
+      "outboundF1": "Lead follow-ups",
+      "outboundF2": "Appointment reminders",
+      "outboundF3": "Sales calls",
+      "useCase1": "Medical clinic handles 100% missed calls",
+      "useCase2": "Real estate firm increases lead response rate by 3x",
+      "useCase3": "Gym reduces no-shows by 40%",
+      "benefit1": "Never miss a call",
+      "benefit2": "Save €2,000–€5,000/month on staff",
+      "benefit3": "Instant response time"
+    },
+    "automation": {
+      "title": "AI Workflow Automation + Vibe Coding",
+      "subtitle": "End-to-end automation for industries that need it most",
+      "industries": "Industries We Automate",
+      "industriesF1": "🏋️ Fitness Gyms",
+      "industriesF2": "🏠 Property Dealers",
+      "industriesF3": "🏥 Medical Clinics & Hospitals",
+      "whatWeAutomate": "What We Automate",
+      "automateF1": "Lead intake → CRM",
+      "automateF2": "Booking → Confirmation → Reminder",
+      "automateF3": "Payments → Invoices → Reports",
+      "vibeCoding": "Vibe Coding",
+      "vibeF1": "Websites",
+      "vibeF2": "Web Apps",
+      "vibeF3": "Internal Software — fast, clean, scalable",
+      "useCase1": "Gym onboarding time cut by 70%",
+      "useCase2": "Property dealer closes 25% more leads",
+      "useCase3": "Clinics reduce admin workload by 50%",
+      "benefit1": "Zero manual work",
+      "benefit2": "Scalable systems",
+      "benefit3": "Faster growth"
+    },
+    "media": {
+      "title": "AI Image & Video Generation",
+      "subtitle": "High-quality AI visuals for marketing & branding",
+      "whatWeCreate": "What We Create",
+      "createF1": "Product images",
+      "createF2": "Social media creatives",
+      "createF3": "Promo videos",
+      "createF4": "AI avatars",
+      "useCase1": "E-commerce brand saves €3,000/month on creatives",
+      "useCase2": "Marketing team produces 10x more content",
+      "useCase3": "Ads CTR improves by 35%",
+      "benefit1": "No designers needed",
+      "benefit2": "Faster content creation",
+      "benefit3": "Massive cost savings"
+    },
+    "consultancy": {
+      "title": "AI Consultancy",
+      "subtitle": "Strategic guidance for your AI journey",
+      "whatWeDo": "What We Do",
+      "doF1": "AI readiness audit",
+      "doF2": "Tool selection",
+      "doF3": "Automation roadmap",
+      "doF4": "Implementation guidance",
+      "useCase1": "SMB identifies €50k/year savings",
+      "useCase2": "Company avoids wrong AI tools",
+      "useCase3": "Faster AI adoption with lower risk",
+      "benefit1": "Clear strategy",
+      "benefit2": "Secure setup",
+      "benefit3": "Long-term ROI"
+    }
+  },
+  "team": {
+    "pageTitle": "Our Team - Green AI | Meet the Experts",
+    "pageDescription": "Meet the team behind Green AI. AI strategists, engineers, and customer success experts dedicated to your success.",
+    "title": "Meet Our",
+    "titleHighlight": "Team",
+    "subtitle": "The experts behind your AI transformation",
+    "joinTitle": "Want to Join Our",
+    "joinTitleHighlight": "Team",
+    "joinSubtitle": "We're always looking for talented individuals passionate about AI and automation. If that's you, we'd love to hear from you.",
+    "zoraiz": {
+      "name": "Zoraiz Fazal",
+      "role": "Founder",
+      "description": "AI strategist and automation architect with a passion for building practical, scalable AI systems that drive real business results."
+    },
+    "mahneem": {
+      "name": "Mahneem Fazal",
+      "role": "Managing Director",
+      "description": "Leads operations and growth, ensuring every client gets structured execution and measurable outcomes."
+    },
+    "sibtain": {
+      "name": "Sibtain Muhammad",
+      "role": "Cloud Solutions Lead",
+      "description": "Expert in cloud infrastructure, security, and scalable AI deployments."
+    },
+    "hammad": {
+      "name": "Hammad Khalid",
+      "role": "Backend Lead",
+      "description": "Specialist in backend systems, APIs, databases, and automation logic."
+    },
+    "alina": {
+      "name": "Alina Schmidt",
+      "role": "Customer Support",
+      "description": "Client success manager ensuring smooth onboarding, support, and long-term satisfaction."
+    }
+  },
+  "contact": {
+    "pageTitle": "Contact Us - Green AI | Get Your Free AI Audit",
+    "pageDescription": "Book your free AI automation consultation. We'll identify 3 automations that can save you time and money. Based in Marburg, Germany.",
+    "badge": "Free AI Audit Included",
+    "title": "Let's",
+    "titleHighlight": "Talk",
+    "subtitle": "Book your free AI automation consultation",
+    "getInTouch": "Get in Touch",
+    "getInTouchText": "Ready to transform your business with AI? Fill out the form and we'll get back to you within 24 hours with your free AI automation audit.",
+    "location": "Location",
+    "address": "Bahnhofstraße 36, 35037 Marburg",
+    "email": "Email",
+    "phone": "Phone",
+    "whatToExpect": "What to Expect",
+    "expect1": "Free 30-minute consultation call",
+    "expect2": "Personalized AI automation audit",
+    "expect3": "3 actionable automation opportunities",
+    "expect4": "Clear ROI projections",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "service": "Service Interested In",
+      "servicePlaceholder": "Select a service",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your business and what you'd like to automate...",
+      "required": "*",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "privacy": "We respect your privacy. No spam, ever."
+    },
+    "services": {
+      "assistants": "AI Assistants",
+      "voice": "AI Voice Agents",
+      "automation": "Workflow Automation",
+      "media": "AI Image & Video",
+      "consultancy": "AI Consultancy",
+      "other": "Other"
+    },
+    "success": {
+      "title": "Message Received!",
+      "message": "Thank you for reaching out. We'll get back to you within 24 hours with your free AI audit."
+    },
+    "errors": {
+      "missingInfo": "Missing information",
+      "fillRequired": "Please fill in all required fields.",
+      "error": "Something went wrong",
+      "tryAgain": "Please try again or contact us directly."
+    },
+    "toast": {
+      "success": "Message Sent!",
+      "successMessage": "We'll get back to you within 24 hours."
+    }
+  },
+  "footer": {
+    "tagline": "AI Automation Agency building practical, revenue-driven AI systems for real businesses.",
+    "company": "Company",
+    "servicesTitle": "Services",
+    "getInTouch": "Get in Touch",
+    "madeWith": "Made with",
+    "inGermany": "in Germany",
+    "allRights": "All rights reserved.",
+    "followUs": "Follow Us"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "en": "English",
+    "de": "Deutsch"
+  }
+}

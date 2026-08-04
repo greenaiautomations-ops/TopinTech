@@ -329,7 +329,10 @@
     "madeWith": "Mit",
     "inGermany": "in Deutschland gemacht",
     "allRights": "Alle Rechte vorbehalten.",
-    "followUs": "Folgen Sie uns"
+    "followUs": "Folgen Sie uns",
+    "impressum": "Impressum",
+    "privacy": "Datenschutz",
+    "legalNote": "Rechtliches"
   },
   "theme": {
     "light": "Hell",

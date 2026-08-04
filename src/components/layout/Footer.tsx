@@ -155,6 +155,14 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Top in Tech. {t("footer.allRights")}
           </p>
+          <div className="flex items-center gap-6">
+            <Link to="/impressum" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              {t("footer.impressum")}
+            </Link>
+            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              {t("footer.privacy")}
+            </Link>
+          </div>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             {t("footer.madeWith")} <Heart className="w-3 h-3 text-primary fill-primary" /> {t("footer.inGermany")}
           </p>

@@ -329,7 +329,10 @@
     "madeWith": "Made with",
     "inGermany": "in Germany",
     "allRights": "All rights reserved.",
-    "followUs": "Follow Us"
+    "followUs": "Follow Us",
+    "impressum": "Impressum",
+    "privacy": "Privacy Policy",
+    "legalNote": "Legal"
   },
   "theme": {
     "light": "Light",

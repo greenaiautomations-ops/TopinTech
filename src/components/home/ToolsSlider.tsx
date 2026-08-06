@@ -1,12 +1,21 @@
-const tools = [
-  { name: "OpenAI", logo: "https://cdn.worldvectorlogo.com/logos/openai-2.svg" },
-  { name: "Claude", logo: "https://registry.npmmirror.com/@anthropic-ai/sdk/latest/files/logo.svg" },
-  { name: "Gemini", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" },
-  { name: "n8n", logo: "https://n8n.io/favicon.ico" },
-  { name: "Perplexity", logo: "https://www.perplexity.ai/favicon.svg" },
-  { name: "LangChain", logo: "https://registry.npmmirror.com/langchain/latest/files/docs/favicon.ico" },
-  { name: "Pinecone", logo: "https://www.pinecone.io/favicon.svg" },
-  { name: "Zapier", logo: "https://cdn.worldvectorlogo.com/logos/zapier-logo.svg" },
+import { IconType } from "react-icons";
+import { SiClaude, SiGooglegemini, SiN8N, SiPerplexity, SiLangchain, SiZapier } from "react-icons/si";
+import { TbBrandOpenai } from "react-icons/tb";
+import { Database } from "lucide-react";
+
+// Bundled SVG icons instead of hotlinked third-party images — these render
+// reliably with zero network dependency (the previous version pulled from
+// external CDNs and frequently failed to load). Pinecone has no icon in the
+// available brand-icon sets, so it falls back to a generic database icon.
+const tools: { name: string; Icon: IconType }[] = [
+  { name: "OpenAI", Icon: TbBrandOpenai },
+  { name: "Claude", Icon: SiClaude },
+  { name: "Gemini", Icon: SiGooglegemini },
+  { name: "n8n", Icon: SiN8N },
+  { name: "Perplexity", Icon: SiPerplexity },
+  { name: "LangChain", Icon: SiLangchain },
+  { name: "Pinecone", Icon: Database },
+  { name: "Zapier", Icon: SiZapier },
 ];
 
 export function ToolsSlider() {
@@ -34,14 +43,7 @@ export function ToolsSlider() {
             >
               <div className="flex items-center gap-3 px-6 py-3 rounded-xl bg-secondary/50 border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300">
                 <div className="w-8 h-8 rounded-lg bg-background flex items-center justify-center overflow-hidden">
-                  <img
-                    src={tool.logo}
-                    alt={tool.name}
-                    className="w-5 h-5 object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
+                  <tool.Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
                 <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                   {tool.name}

@@ -45,10 +45,9 @@ export function Footer() {
       { name: t("nav.contact"), path: "/contact" },
     ],
     services: [
-      { name: t("services.aiAssistants.title"), path: "/services#assistants" },
-      { name: t("services.voiceAgents.title"), path: "/services#voice" },
-      { name: t("services.workflowAutomation.title"), path: "/services#automation" },
-      { name: t("services.consultancy.title"), path: "/services#consultancy" },
+      { name: "IT Support Services", path: "/services#helpdesk" },
+      { name: "AI Automations & Agents", path: "/services#assistants" },
+      { name: "Web & App Development", path: "/services#webdev" },
     ],
   };
 

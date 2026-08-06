@@ -53,28 +53,27 @@ const categoryData = [
           {
             name: "Setup & Installation",
             features: [
-              "Windows installation & setup",
-              "Home office setup & troubleshooting",
-              "Headsets, mice, docking stations, printers & scanners",
-              "Home network installation & configuration",
+              "Windows installation",
+              "Home office setup and solution to the problems",
+              "Headset, mouse, docking station, printers, scanner, network installation, configuration, updation",
             ],
           },
           {
-            name: "Software & Data Protection",
+            name: "Software & Data Management",
             features: [
+              "Data backup and recovery",
               "Anti-virus software installation",
               "Software license management",
-              "Office 365 & Google Workspace setup and upgrades",
-              "Data backup & recovery",
+              "Office 365 and Google Suite installation, up-gradation and maintenance",
             ],
           },
           {
             name: "Mobile & Smart Home",
             features: [
-              "Android & iOS updates, password resets, data recovery",
-              "Smart device setup & installation",
-              "Smart home automation from your smartphone",
-              "General hardware & software troubleshooting",
+              "Android, iOS software update, password reset, data recovery",
+              "Smart devices setup and installation",
+              "All other hardware and software related issues",
+              "Convert your home to a smart home by managing your home appliances with your smartphone or smart devices",
             ],
           },
         ],

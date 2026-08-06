@@ -4,11 +4,14 @@ import { cn } from "@/lib/utils";
 // NOTE: replace with your real, verifiable numbers as they grow — specific,
 // modest figures build more trust with SMB buyers than large round numbers
 // that a small team can't back up with named case studies.
+// Ordered to match the three service categories on the Services page (IT
+// Support, AI Automation, Web & App Dev), with one umbrella stat tying them
+// together.
 const stats = [
   { value: 3, suffix: "", label: "Service Areas Under One Roof" },
-  { value: 24, suffix: "/7", label: "IT & Automation Support" },
-  { value: 5, suffix: "+", label: "AI Platforms Mastered" },
-  { value: 100, suffix: "%", label: "Custom-Built, No Templates" },
+  { value: 24, suffix: "/7", label: "IT Support Availability" },
+  { value: 5, suffix: "+", label: "AI Platforms & Tools Used" },
+  { value: 100, suffix: "%", label: "Custom-Built Websites & Apps" },
 ];
 
 function AnimatedCounter({

@@ -8,41 +8,41 @@ import {
   ResponsiveContainer,
   CartesianGrid,
   Cell,
+  LabelList,
 } from "recharts";
 
-// One bar per top-level service area (matching the three categories on the
-// Services page), each with the metric that's most relevant to it.
-// Illustrative ranges pulled from the mock use cases already used on the
-// Services page (see src/pages/Services.tsx). These are typical ranges, not
-// a guarantee for any specific business — update once you have real
-// client-measured results to cite instead.
+// One bar per top-level service area, matching the three categories on the
+// Services page (IT Support Services, AI Automations & Agents, Web & App
+// Development). Each bar is a single "% typical reduction" value rather than
+// a before/after pair — easier to read at a glance, and each metric is the
+// one most relevant to that service area. Numbers are illustrative, pulled
+// from the mock use cases already on the Services page (src/pages/Services.tsx)
+// — update once you have real client-measured results to cite instead.
 const data = [
-  { name: "IT Support\nServices", before: 100, after: 19, metric: "Ticket resolution time" },
-  { name: "AI Automations\n& Agents", before: 100, after: 30, metric: "Manual work hours" },
-  { name: "Web & App\nDevelopment", before: 100, after: 50, metric: "Admin workload" },
+  { name: "IT Support Services", reduction: 81, metric: "Ticket resolution time" },
+  { name: "AI Automations & Agents", reduction: 70, metric: "Manual work hours" },
+  { name: "Web & App Development", reduction: 50, metric: "Admin workload" },
 ];
 
 interface TooltipPayloadItem {
   value: number;
-  payload: { metric: string };
+  payload: { metric: string; name: string };
 }
 
 function CustomTooltip({
   active,
   payload,
-  label,
 }: {
   active?: boolean;
   payload?: TooltipPayloadItem[];
-  label?: string;
 }) {
   if (!active || !payload?.length) return null;
-  const reduction = 100 - payload[1]?.value;
+  const item = payload[0].payload;
   return (
     <div className="rounded-xl border border-border bg-card px-4 py-3 shadow-lg">
-      <p className="font-display font-semibold text-sm mb-1">{label.replace("\n", " ")}</p>
-      <p className="text-xs text-muted-foreground">{payload[0]?.payload.metric} before automation</p>
-      <p className="text-primary text-sm font-semibold mt-1">~{reduction}% reduction after Top in Tech</p>
+      <p className="font-display font-semibold text-sm mb-1">{item.name}</p>
+      <p className="text-xs text-muted-foreground">{item.metric}</p>
+      <p className="text-primary text-sm font-semibold mt-1">~{payload[0].value}% typical reduction</p>
     </div>
   );
 }
@@ -66,11 +66,11 @@ export function ImpactChart() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Typical <span className="gradient-text">Time & Cost Reduction</span>
+            Typical <span className="gradient-text">Impact by Service Area</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Illustrative before/after ranges by service area — every engagement gets its own numbers
-            during your free audit.
+            Average reduction in time, tickets, or manual work for each service area — every
+            engagement gets its own numbers during your free audit.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export function ImpactChart() {
           <div className="h-[320px] w-full">
             {isVisible && (
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }} barGap={8}>
+                <BarChart data={data} margin={{ top: 30, right: 10, left: -10, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" vertical={false} />
                   <XAxis
                     dataKey="name"
@@ -96,25 +96,33 @@ export function ImpactChart() {
                     axisLine={false}
                     tickLine={false}
                     tickFormatter={(v) => `${v}%`}
+                    domain={[0, 100]}
+                    label={{
+                      value: "% typical reduction",
+                      angle: -90,
+                      position: "insideLeft",
+                      fill: "hsl(var(--muted-foreground))",
+                      fontSize: 12,
+                      style: { textAnchor: "middle" },
+                    }}
                   />
                   <Tooltip content={<CustomTooltip />} cursor={{ fill: "hsl(var(--primary) / 0.05)" }} />
-                  <Bar dataKey="before" name="Before" radius={[6, 6, 0, 0]} fill="hsl(var(--muted-foreground) / 0.25)" />
-                  <Bar dataKey="after" name="After Top in Tech" radius={[6, 6, 0, 0]}>
+                  <Bar dataKey="reduction" radius={[8, 8, 0, 0]} maxBarSize={90}>
                     {data.map((_, index) => (
                       <Cell key={index} fill="hsl(var(--primary))" />
                     ))}
+                    <LabelList
+                      dataKey="reduction"
+                      position="top"
+                      formatter={(v: number) => `${v}%`}
+                      fill="hsl(var(--foreground))"
+                      fontSize={14}
+                      fontWeight={700}
+                    />
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
             )}
-          </div>
-          <div className="flex items-center justify-center gap-6 mt-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-sm bg-muted-foreground/25" /> Before automation
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-sm bg-primary" /> After Top in Tech
-            </span>
           </div>
         </div>
       </div>

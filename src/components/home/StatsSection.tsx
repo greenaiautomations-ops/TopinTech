@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 // modest figures build more trust with SMB buyers than large round numbers
 // that a small team can't back up with named case studies.
 const stats = [
+  { value: 3, suffix: "", label: "Service Areas Under One Roof" },
+  { value: 24, suffix: "/7", label: "IT & Automation Support" },
   { value: 5, suffix: "+", label: "AI Platforms Mastered" },
-  { value: 24, suffix: "/7", label: "Automation Uptime" },
-  { value: 2, suffix: "", label: "Industries Specialized In" },
   { value: 100, suffix: "%", label: "Custom-Built, No Templates" },
 ];
 

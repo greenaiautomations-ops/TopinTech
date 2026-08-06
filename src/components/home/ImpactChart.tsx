@@ -10,15 +10,16 @@ import {
   Cell,
 } from "recharts";
 
-// Illustrative ranges pulled from the benefit figures already used on the
-// Services page (see src/pages/Services.tsx benefit chips). These are typical
-// ranges, not a guarantee for any specific business — update once you have
-// real client-measured results to cite instead.
+// One bar per top-level service area (matching the three categories on the
+// Services page), each with the metric that's most relevant to it.
+// Illustrative ranges pulled from the mock use cases already used on the
+// Services page (see src/pages/Services.tsx). These are typical ranges, not
+// a guarantee for any specific business — update once you have real
+// client-measured results to cite instead.
 const data = [
-  { name: "AI Assistants", before: 100, after: 30, metric: "Time spent" },
-  { name: "Voice Agents", before: 100, after: 15, metric: "Missed calls" },
-  { name: "Workflow\nAutomation", before: 100, after: 25, metric: "Manual work" },
-  { name: "Image & Video", before: 100, after: 10, metric: "Content cost" },
+  { name: "IT Support\nServices", before: 100, after: 19, metric: "Ticket resolution time" },
+  { name: "AI Automations\n& Agents", before: 100, after: 30, metric: "Manual work hours" },
+  { name: "Web & App\nDevelopment", before: 100, after: 50, metric: "Admin workload" },
 ];
 
 interface TooltipPayloadItem {

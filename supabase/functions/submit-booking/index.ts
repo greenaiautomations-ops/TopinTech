@@ -6,7 +6,6 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const N8N_WEBHOOK_URL = "https://zoraiz1002.app.n8n.cloud/webhook/AI%20_Audit";
 const NOTIFY_EMAIL = "greenaiautomations@gmail.com";
 
 // TODO: once a domain is verified in Resend (Domains tab in the Resend
@@ -33,10 +32,10 @@ async function sendEmail(apiKey: string, to: string, subject: string, html: stri
   return true;
 }
 
-// Handles the "Book Your Free AI Audit Call" form (AuditSection.tsx). Writes
-// to Supabase first (audit_bookings table) so we have a durable record, sends
-// a confirmation email to the booker and a notification email to the team,
-// then forwards to n8n for any additional downstream automation.
+// Handles the "Book Your Free AI Audit Call" form (AuditSection.tsx).
+// n8n has been removed from this path — this function now only does two
+// things: save the booking to Supabase (source of truth) and send email
+// notifications directly via Resend. No external webhook dependency.
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -67,7 +66,13 @@ serve(async (req) => {
     });
 
     if (dbError) {
+      // If the DB insert fails, surface it clearly instead of silently
+      // continuing — this is now the only place this data gets saved.
       console.error("Failed to insert audit booking:", dbError.message);
+      return new Response(
+        JSON.stringify({ error: `Database error: ${dbError.message}` }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
+      );
     }
 
     // Emails are best-effort: a booking that's saved but has a failed email
@@ -109,23 +114,6 @@ serve(async (req) => {
       ]);
     } else {
       console.warn("RESEND_API_KEY not set — skipping confirmation emails.");
-    }
-
-    let webhookOk = true;
-    try {
-      const response = await fetch(N8N_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      webhookOk = response.ok;
-    } catch (webhookError) {
-      console.error("Webhook forwarding failed:", webhookError);
-      webhookOk = false;
-    }
-
-    if (dbError && !webhookOk) {
-      throw new Error("Failed to save booking and failed to notify webhook.");
     }
 
     return new Response(

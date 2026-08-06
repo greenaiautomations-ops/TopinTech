@@ -6,7 +6,6 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const N8N_WEBHOOK_URL = "https://zoraiz1002.app.n8n.cloud/webhook/AI%20_Audit";
 const NOTIFY_EMAIL = "greenaiautomations@gmail.com";
 
 // TODO: once a domain is verified in Resend (Domains tab in the Resend
@@ -33,8 +32,10 @@ async function sendEmail(apiKey: string, to: string, subject: string, html: stri
   return true;
 }
 
+// Handles the Contact page form. n8n has been removed from this path — this
+// function now only does two things: save the lead to Supabase (source of
+// truth) and send email notifications directly via Resend.
 serve(async (req) => {
-  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -50,9 +51,6 @@ serve(async (req) => {
       );
     }
 
-    // 1. Persist the lead in Supabase first, so we never lose a submission
-    //    even if the n8n webhook below is slow or down. This is the system
-    //    of record; the webhook is just a notification trigger.
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_ANON_KEY") ?? ""
@@ -68,11 +66,12 @@ serve(async (req) => {
 
     if (dbError) {
       console.error("Failed to insert contact lead:", dbError.message);
-      // Don't hard-fail the request just because the DB insert failed —
-      // still try to notify via webhook so the lead isn't silently lost.
+      return new Response(
+        JSON.stringify({ error: `Database error: ${dbError.message}` }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
+      );
     }
 
-    // 2. Send confirmation + notification emails (best-effort).
     const resendKey = Deno.env.get("RESEND_API_KEY");
     if (resendKey) {
       await Promise.all([
@@ -106,26 +105,6 @@ serve(async (req) => {
       ]);
     } else {
       console.warn("RESEND_API_KEY not set — skipping confirmation emails.");
-    }
-
-    // 3. Forward to n8n for real-time notification / downstream automation.
-    let webhookOk = true;
-    try {
-      const response = await fetch(N8N_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      webhookOk = response.ok;
-    } catch (webhookError) {
-      console.error("Webhook forwarding failed:", webhookError);
-      webhookOk = false;
-    }
-
-    // Consider the submission successful if we at least saved it to the DB,
-    // even if the webhook notification failed.
-    if (dbError && !webhookOk) {
-      throw new Error("Failed to save lead and failed to notify webhook.");
     }
 
     return new Response(

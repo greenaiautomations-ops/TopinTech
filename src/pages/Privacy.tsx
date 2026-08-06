@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 // NOTE FOR SITE OWNER:
 // This is a starting-point GDPR (DSGVO) privacy policy covering what's visible
 // in the current codebase: the contact form (writes to Supabase + forwards to
-// an n8n webhook), the booking form, cookies/local storage used for the theme
+// database), the booking form, cookies/local storage used for the theme
 // and language preference, and any analytics you add later. [Bracketed] fields
 // need your real details. Once you add real analytics (e.g. Google Analytics)
 // or a live chat tool, add a matching section here — this is not a substitute
@@ -88,10 +88,10 @@ const Privacy = () => {
                   4. Third-party processors
                 </h2>
                 <p>
-                  We use Supabase (database and hosting infrastructure) to store form submissions, and an
-                  internal n8n automation workflow to route new inquiries to our team. [If you add analytics,
-                  a live chat widget, or an email marketing tool, list each provider here along with a link
-                  to their privacy policy.]
+                  We use Supabase (database and hosting infrastructure) to store form submissions, and
+                  Resend to send confirmation and notification emails. [If you add analytics, a live chat
+                  widget, or an email marketing tool, list each provider here along with a link to their
+                  privacy policy.]
                 </p>
               </div>
 

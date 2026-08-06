@@ -21,7 +21,20 @@ const data = [
   { name: "Image & Video", before: 100, after: 10, metric: "Content cost" },
 ];
 
-function CustomTooltip({ active, payload, label }: any) {
+interface TooltipPayloadItem {
+  value: number;
+  payload: { metric: string };
+}
+
+function CustomTooltip({
+  active,
+  payload,
+  label,
+}: {
+  active?: boolean;
+  payload?: TooltipPayloadItem[];
+  label?: string;
+}) {
   if (!active || !payload?.length) return null;
   const reduction = 100 - payload[1]?.value;
   return (

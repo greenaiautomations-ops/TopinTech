@@ -1,7 +1,12 @@
+import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { PricingSection } from "@/components/PricingSection";
+import { FAQSection } from "@/components/FAQSection";
+import { Reveal } from "@/components/Reveal";
 import {
   Bot,
   Mic,
@@ -16,7 +21,6 @@ import {
   Phone,
   BarChart3,
   FileText,
-  Calendar,
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
@@ -194,6 +198,15 @@ const services = [
 ];
 
 const Services = () => {
+  const location = useLocation();
+  const initialTab = services.find((s) => location.hash === `#${s.id}`)?.id ?? services[0].id;
+  const [activeTab, setActiveTab] = useState(initialTab);
+
+  useEffect(() => {
+    const id = services.find((s) => location.hash === `#${s.id}`)?.id;
+    if (id) setActiveTab(id);
+  }, [location.hash]);
+
   return (
     <>
       <Helmet>
@@ -219,88 +232,98 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Services */}
-        {services.map((service, index) => (
-          <section
-            key={service.id}
-            id={service.id}
-            className={`py-24 ${index % 2 === 0 ? "bg-card/30" : ""}`}
-          >
-            <div className="container mx-auto px-4">
-              <div className="max-w-5xl mx-auto">
-                {/* Service Header */}
-                <div className="flex items-start gap-6 mb-12">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <service.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <div>
-                    <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">
-                      {service.title}
-                    </h2>
-                    <p className="text-lg text-muted-foreground">
-                      {service.subtitle}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Categories */}
-                <div className="grid md:grid-cols-3 gap-6 mb-12">
-                  {service.categories.map((category) => (
-                    <div
-                      key={category.name}
-                      className="p-6 rounded-2xl bg-card border border-border"
+        {/* Services Tabs — six services used to be one long scroll; now a
+            visitor can jump straight to the one they care about. */}
+        <section className="pb-24">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <Tabs
+                value={activeTab}
+                onValueChange={(v) => {
+                  setActiveTab(v);
+                  window.history.replaceState(null, "", `#${v}`);
+                }}
+              >
+                <TabsList className="h-auto w-full flex-wrap gap-2 bg-transparent p-0 mb-12 justify-center">
+                  {services.map((service) => (
+                    <TabsTrigger
+                      key={service.id}
+                      value={service.id}
+                      className="flex items-center gap-2 px-4 py-3 rounded-xl border border-border bg-card data-[state=active]:bg-primary/10 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none text-sm font-medium"
                     >
-                      <h3 className="font-display font-semibold mb-4">
-                        {category.name}
-                      </h3>
-                      <ul className="space-y-2">
-                        {category.features.map((feature) => (
-                          <li
-                            key={feature}
-                            className="flex items-center gap-2 text-sm text-muted-foreground"
-                          >
-                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                      <service.icon className="w-4 h-4" />
+                      <span className="hidden sm:inline">{service.title.split(" + ")[0]}</span>
+                    </TabsTrigger>
                   ))}
-                </div>
+                </TabsList>
 
-                {/* Use Cases */}
-                <div className="mb-12">
-                  <h3 className="font-display text-xl font-semibold mb-6">
-                    Real Use Cases
-                  </h3>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {service.useCases.map((useCase) => (
-                      <div
-                        key={useCase}
-                        className="p-4 rounded-xl bg-primary/5 border border-primary/10"
-                      >
-                        <p className="text-sm text-muted-foreground">{useCase}</p>
+                {services.map((service) => (
+                  <TabsContent key={service.id} value={service.id} id={service.id} className="mt-0 focus-visible:outline-none">
+                    <Reveal>
+                      {/* Service Header */}
+                      <div className="flex items-start gap-6 mb-12">
+                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <service.icon className="w-8 h-8 text-primary" />
+                        </div>
+                        <div>
+                          <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">
+                            {service.title}
+                          </h2>
+                          <p className="text-lg text-muted-foreground">{service.subtitle}</p>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
 
-                {/* Benefits */}
-                <div className="flex flex-wrap gap-4 justify-center">
-                  {service.benefits.map((benefit) => (
-                    <div
-                      key={benefit.text}
-                      className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border"
-                    >
-                      <benefit.icon className="w-4 h-4 text-primary" />
-                      <span className="text-sm font-medium">{benefit.text}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                      {/* Categories */}
+                      <div className="grid md:grid-cols-3 gap-6 mb-12">
+                        {service.categories.map((category) => (
+                          <div key={category.name} className="p-6 rounded-2xl bg-card border border-border">
+                            <h3 className="font-display font-semibold mb-4">{category.name}</h3>
+                            <ul className="space-y-2">
+                              {category.features.map((feature) => (
+                                <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                                  {feature}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Use Cases */}
+                      <div className="mb-12">
+                        <h3 className="font-display text-xl font-semibold mb-6">Real Use Cases</h3>
+                        <div className="grid md:grid-cols-3 gap-4">
+                          {service.useCases.map((useCase) => (
+                            <div key={useCase} className="p-4 rounded-xl bg-primary/5 border border-primary/10">
+                              <p className="text-sm text-muted-foreground">{useCase}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Benefits */}
+                      <div className="flex flex-wrap gap-4 justify-center">
+                        {service.benefits.map((benefit) => (
+                          <div key={benefit.text} className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border">
+                            <benefit.icon className="w-4 h-4 text-primary" />
+                            <span className="text-sm font-medium">{benefit.text}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </Reveal>
+                  </TabsContent>
+                ))}
+              </Tabs>
             </div>
-          </section>
-        ))}
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <PricingSection />
+
+        {/* FAQ */}
+        <FAQSection />
 
         {/* CTA */}
         <section className="py-24">

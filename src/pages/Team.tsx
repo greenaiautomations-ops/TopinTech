@@ -1,7 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
 import { Helmet } from "react-helmet-async";
 import { Linkedin, Mail } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
+// Drop real photos into src/assets/team/ and set `image` to the imported path
+// to replace the initials avatar below — the render logic already falls back
+// gracefully when image is null, so this is a drop-in swap, no other changes
+// needed.
 const team = [
   {
     name: "Zoraiz Fazal",
@@ -58,19 +63,26 @@ const Team = () => {
             <div className="max-w-6xl mx-auto">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {team.map((member, index) => (
+                  <Reveal key={member.name} delay={index * 100}>
                   <div
-                    key={member.name}
                     className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2"
-                    style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {/* Avatar */}
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <span className="font-display text-2xl font-bold text-primary">
-                        {member.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </span>
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mx-auto mb-6 overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span className="font-display text-2xl font-bold text-primary">
+                          {member.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </span>
+                      )}
                     </div>
 
                     {/* Info */}
@@ -102,6 +114,7 @@ const Team = () => {
                       </a>
                     </div>
                   </div>
+                  </Reveal>
                 ))}
               </div>
             </div>

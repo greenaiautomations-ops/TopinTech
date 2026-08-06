@@ -19,8 +19,8 @@ export function CTASection() {
           </h2>
 
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-            Join 100+ businesses already saving time and money with our AI
-            automation solutions.
+            Start with a free audit — no commitment, no hard sell, just a clear
+            picture of what AI can save your business.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

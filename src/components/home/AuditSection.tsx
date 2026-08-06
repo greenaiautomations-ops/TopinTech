@@ -11,6 +11,7 @@ import { Sparkles, CheckCircle, ArrowRight, Loader2, CalendarIcon, Clock } from 
 import { useToast } from "@/hooks/use-toast";
 import { format, addDays, isWeekend } from "date-fns";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 const timeSlots = [
   "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
@@ -42,25 +43,21 @@ export function AuditSection() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("https://zoraiz1002.app.n8n.cloud/webhook/AI%20_Audit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const { error } = await supabase.functions.invoke("submit-booking", {
+        body: {
           name,
           email,
           company,
           preferred_date: format(selectedDate, "yyyy-MM-dd"),
           preferred_time: selectedTime,
           submitted_at: new Date().toISOString(),
-        }),
+        },
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit");
+      if (error) {
+        throw new Error(error.message);
       }
-      
+
       setIsSubmitted(true);
       toast({
         title: "Booking Request Received!",

@@ -8,46 +8,43 @@ const corsHeaders = {
 
 const N8N_WEBHOOK_URL = "https://zoraiz1002.app.n8n.cloud/webhook/AI%20_Audit";
 
+// Handles the "Book Your Free AI Audit Call" form (AuditSection.tsx). Same
+// pattern as submit-contact: write to Supabase first (audit_bookings table)
+// so we have a durable record and the n8n webhook URL isn't exposed in
+// client-side JS, then forward to n8n for notification.
 serve(async (req) => {
-  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
     const body = await req.json();
-    const { name, email, company, service, message } = body;
+    const { name, email, company, preferred_date, preferred_time } = body;
 
-    if (!name || !email) {
+    if (!name || !email || !preferred_date || !preferred_time) {
       return new Response(
-        JSON.stringify({ error: "Name and email are required." }),
+        JSON.stringify({ error: "Name, email, preferred date and time are required." }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 400 }
       );
     }
 
-    // 1. Persist the lead in Supabase first, so we never lose a submission
-    //    even if the n8n webhook below is slow or down. This is the system
-    //    of record; the webhook is just a notification trigger.
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_ANON_KEY") ?? ""
     );
 
-    const { error: dbError } = await supabase.from("contact_leads").insert({
+    const { error: dbError } = await supabase.from("audit_bookings").insert({
       name,
       email,
       company: company || null,
-      service: service || null,
-      message: message || "",
+      preferred_date,
+      preferred_time,
     });
 
     if (dbError) {
-      console.error("Failed to insert contact lead:", dbError.message);
-      // Don't hard-fail the request just because the DB insert failed —
-      // still try to notify via webhook so the lead isn't silently lost.
+      console.error("Failed to insert audit booking:", dbError.message);
     }
 
-    // 2. Forward to n8n for real-time notification / downstream automation.
     let webhookOk = true;
     try {
       const response = await fetch(N8N_WEBHOOK_URL, {
@@ -61,10 +58,8 @@ serve(async (req) => {
       webhookOk = false;
     }
 
-    // Consider the submission successful if we at least saved it to the DB,
-    // even if the webhook notification failed.
     if (dbError && !webhookOk) {
-      throw new Error("Failed to save lead and failed to notify webhook.");
+      throw new Error("Failed to save booking and failed to notify webhook.");
     }
 
     return new Response(
@@ -73,7 +68,7 @@ serve(async (req) => {
     );
   } catch (error: unknown) {
     const errorMessage = error instanceof Error ? error.message : "Unknown error";
-    console.error("Error handling contact submission:", errorMessage);
+    console.error("Error handling booking submission:", errorMessage);
     return new Response(
       JSON.stringify({ error: errorMessage }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }

@@ -1,11 +1,14 @@
 import { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 
+// NOTE: replace with your real, verifiable numbers as they grow — specific,
+// modest figures build more trust with SMB buyers than large round numbers
+// that a small team can't back up with named case studies.
 const stats = [
-  { value: 120, suffix: "+", label: "AI Assistants Deployed" },
-  { value: 45, suffix: "+", label: "Voice Agents Live" },
-  { value: 80, suffix: "+", label: "Workflow Automations Built" },
-  { value: 3000, suffix: "+", label: "AI Images & Videos Generated" },
+  { value: 5, suffix: "+", label: "AI Platforms Mastered" },
+  { value: 24, suffix: "/7", label: "Automation Uptime" },
+  { value: 2, suffix: "", label: "Industries Specialized In" },
+  { value: 100, suffix: "%", label: "Custom-Built, No Templates" },
 ];
 
 function AnimatedCounter({

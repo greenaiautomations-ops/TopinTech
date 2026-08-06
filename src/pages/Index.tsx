@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { StatsSection } from "@/components/home/StatsSection";
+import { ImpactChart } from "@/components/home/ImpactChart";
 import { ToolsSlider } from "@/components/home/ToolsSlider";
 import { AuditSection } from "@/components/home/AuditSection";
 import { CTASection } from "@/components/home/CTASection";
@@ -21,6 +22,7 @@ const Index = () => {
         <HeroSection />
         <ServicesOverview />
         <StatsSection />
+        <ImpactChart />
         <ToolsSlider />
         <AuditSection />
         <CTASection />

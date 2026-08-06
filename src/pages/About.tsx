@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Helmet } from "react-helmet-async";
 import { Target, Shield, TrendingUp, Zap, MapPin, CheckCircle } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 const whyUs = [
   {
@@ -114,10 +115,9 @@ const About = () => {
 
               <div className="grid sm:grid-cols-2 gap-6">
                 {whyUs.map((item, index) => (
+                  <Reveal key={item.title} delay={index * 100}>
                   <div
-                    key={item.title}
                     className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group"
-                    style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <item.icon className="w-6 h-6 text-primary" />
@@ -129,6 +129,7 @@ const About = () => {
                       {item.description}
                     </p>
                   </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -160,9 +161,9 @@ const About = () => {
                     description:
                       "No black boxes. We explain everything we build and train your team to manage it independently.",
                   },
-                ].map((value) => (
+                ].map((value, index) => (
+                  <Reveal key={value.title} delay={index * 100}>
                   <div
-                    key={value.title}
                     className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border"
                   >
                     <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
@@ -173,6 +174,7 @@ const About = () => {
                       <p className="text-muted-foreground">{value.description}</p>
                     </div>
                   </div>
+                  </Reveal>
                 ))}
               </div>
             </div>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Rocket, Phone, Bot, Mic, Workflow, Sparkles } from "lucide-react";
+import { VideoModal } from "@/components/VideoModal";
 
 const floatingIcons = [
   { Icon: Bot, delay: "0s", position: "top-20 left-[10%]" },
@@ -71,7 +72,7 @@ export function HeroSection() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in animation-delay-800">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 opacity-0 animate-fade-in animation-delay-800">
             <Button variant="glow" size="xl" asChild>
               <Link to="/contact">
                 <Rocket className="w-5 h-5" />
@@ -84,6 +85,7 @@ export function HeroSection() {
                 Talk to an AI Expert
               </Link>
             </Button>
+            <VideoModal />
           </div>
         </div>
       </div>

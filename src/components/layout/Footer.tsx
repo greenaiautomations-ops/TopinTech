@@ -45,7 +45,7 @@ export function Footer() {
       { name: t("nav.contact"), path: "/contact" },
     ],
     services: [
-      { name: "IT Support Services", path: "/services#helpdesk" },
+      { name: "IT Support Services", path: "/services#home-it" },
       { name: "AI Automations & Agents", path: "/services#assistants" },
       { name: "Web & App Development", path: "/services#webdev" },
     ],

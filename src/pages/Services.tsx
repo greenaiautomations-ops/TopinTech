@@ -25,9 +25,10 @@ import {
   ArrowRight,
   CheckCircle,
   Headset,
-  Network,
   ShieldCheck,
   Cloud,
+  House,
+  Building2,
 } from "lucide-react";
 
 // Business is organized into three top-level categories. Each category has
@@ -41,8 +42,97 @@ const categoryData = [
     id: "it-support",
     icon: Headset,
     title: "IT Support Services",
-    subtitle: "Reliable, responsive IT so your team never has to think about it",
+    subtitle: "Reliable IT support for your home and business — from setup to ongoing management",
     services: [
+      {
+        id: "home-it",
+        icon: House,
+        title: "Home IT Services",
+        subtitle: "Practical tech support for your household, handled by real people",
+        categories: [
+          {
+            name: "Setup & Installation",
+            features: [
+              "Windows installation & setup",
+              "Home office setup & troubleshooting",
+              "Headsets, mice, docking stations, printers & scanners",
+              "Home network installation & configuration",
+            ],
+          },
+          {
+            name: "Software & Data Protection",
+            features: [
+              "Anti-virus software installation",
+              "Software license management",
+              "Office 365 & Google Workspace setup and upgrades",
+              "Data backup & recovery",
+            ],
+          },
+          {
+            name: "Mobile & Smart Home",
+            features: [
+              "Android & iOS updates, password resets, data recovery",
+              "Smart device setup & installation",
+              "Smart home automation from your smartphone",
+              "General hardware & software troubleshooting",
+            ],
+          },
+        ],
+        useCases: [
+          "Remote worker gets a home office fully set up and connected in under 2 hours",
+          "Family recovers 10 years of photos after a hard drive failure",
+          "Retiree's smart home setup lets them control lights and heating from one app",
+        ],
+        benefits: [
+          { icon: Clock, text: "Same-day setup & support" },
+          { icon: ShieldCheck, text: "Your data backed up & protected" },
+          { icon: Smartphone, text: "Everything controlled from your phone" },
+        ],
+      },
+      {
+        id: "corporate-it",
+        icon: Building2,
+        title: "Corporate IT Support Services",
+        subtitle: "The same reliable support, scaled to your whole team",
+        categories: [
+          {
+            name: "Deployment & Setup",
+            features: [
+              "Company-wide Windows/macOS imaging & deployment",
+              "New hire workstation & office setup",
+              "Meeting room AV & video conferencing setup",
+              "Corporate network installation & configuration",
+            ],
+          },
+          {
+            name: "Software & Compliance",
+            features: [
+              "Enterprise anti-virus & endpoint protection",
+              "Company-wide software license management",
+              "Office 365 / Google Workspace tenant administration",
+              "Data backup & disaster recovery",
+            ],
+          },
+          {
+            name: "Mobile & Ongoing Support",
+            features: [
+              "Mobile device management: updates, resets, remote wipe",
+              "Smart office device setup (access control, displays, sensors)",
+              "Ongoing hardware & software troubleshooting for all employees",
+            ],
+          },
+        ],
+        useCases: [
+          "50-person office fully relocated and operational within a single weekend",
+          "Company recovers critical project files within hours after a laptop theft",
+          "Sales team's mobile devices centrally managed, cutting lost-device risk to zero",
+        ],
+        benefits: [
+          { icon: Users, text: "One team for every employee's IT needs" },
+          { icon: ShieldCheck, text: "Enterprise-grade protection & compliance" },
+          { icon: Clock, text: "Minimal disruption during rollouts" },
+        ],
+      },
       {
         id: "helpdesk",
         icon: Headset,
@@ -71,66 +161,6 @@ const categoryData = [
           { icon: Clock, text: "24/7 coverage" },
           { icon: Users, text: "Dedicated support team" },
           { icon: TrendingUp, text: "Faster resolution times" },
-        ],
-      },
-      {
-        id: "network",
-        icon: Network,
-        title: "Network & Infrastructure Management",
-        subtitle: "Proactive monitoring that catches problems before your team notices",
-        categories: [
-          {
-            name: "Network Monitoring",
-            features: ["Proactive uptime monitoring", "Bandwidth optimization", "Automatic incident alerting"],
-          },
-          {
-            name: "Server & Cloud Infrastructure",
-            features: ["Server maintenance & patching", "Cloud cost optimization", "Backup & disaster recovery"],
-          },
-          {
-            name: "Hardware Management",
-            features: ["Asset tracking", "Lifecycle planning", "Vendor procurement"],
-          },
-        ],
-        useCases: [
-          "Manufacturing plant reduces unplanned network downtime by 70%",
-          "Clinic chain achieves 99.9% uptime across 5 locations",
-          "Logistics company cuts cloud spend by 30% through right-sizing",
-        ],
-        benefits: [
-          { icon: ShieldCheck, text: "Reliable uptime" },
-          { icon: DollarSign, text: "Lower infrastructure costs" },
-          { icon: Workflow, text: "Proactive maintenance" },
-        ],
-      },
-      {
-        id: "security",
-        icon: ShieldCheck,
-        title: "Cybersecurity & Data Protection",
-        subtitle: "Enterprise-grade protection sized for small and medium businesses",
-        categories: [
-          {
-            name: "Threat Monitoring",
-            features: ["24/7 monitoring & alerting", "Endpoint protection", "Phishing simulation training"],
-          },
-          {
-            name: "Compliance & Audits",
-            features: ["GDPR compliance support", "Security audits", "Policy documentation"],
-          },
-          {
-            name: "Backup & Recovery",
-            features: ["Automated daily backups", "Disaster recovery planning", "Ransomware protection"],
-          },
-        ],
-        useCases: [
-          "Financial services firm passes ISO 27001 audit on first attempt",
-          "Healthcare provider reaches full GDPR compliance in 6 weeks",
-          "Retailer recovers from a ransomware attempt with zero data loss",
-        ],
-        benefits: [
-          { icon: ShieldCheck, text: "Enterprise-grade security" },
-          { icon: CheckCircle, text: "Audit-ready compliance" },
-          { icon: Clock, text: "24/7 threat monitoring" },
         ],
       },
       {

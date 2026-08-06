@@ -8,9 +8,9 @@ const services = [
   {
     icon: Headset,
     title: "IT Support Services",
-    description: "24/7 helpdesk, network management, cybersecurity & cloud migration for growing teams",
+    description: "Home & corporate IT support, helpdesk, and cloud management — for households and growing teams",
     color: "from-cyan-500/20 to-cyan-500/5",
-    link: "/services#helpdesk",
+    link: "/services#home-it",
   },
   {
     icon: Bot,

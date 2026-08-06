@@ -3,63 +3,37 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// PLACEHOLDER PRICING — replace [XXX] with real starting prices before launch.
-// Even rough numbers here measurably reduce bounce for price-sensitive SMB
-// visitors versus showing no pricing signal at all.
-const tiers = [
-  {
-    name: "Starter",
-    price: "€[XXX]",
-    period: "one-time setup",
-    description: "One focused automation — a voice agent, a single AI assistant, or one workflow.",
-    features: [
-      "1 automation or AI assistant",
-      "Setup & integration",
-      "Team training session",
-      "30 days of support",
-    ],
-    highlighted: false,
-  },
-  {
-    name: "Growth",
-    price: "€[XXX]",
-    period: "/month",
-    description: "For businesses automating multiple processes and want ongoing optimization.",
-    features: [
-      "Up to 3 automations or AI assistants",
-      "Priority setup & integration",
-      "Monthly performance review",
-      "Ongoing support & tuning",
-    ],
-    highlighted: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "quote",
-    description: "Multi-department automation, custom integrations, or dedicated infrastructure.",
-    features: [
-      "Unlimited automations",
-      "Dedicated implementation team",
-      "Custom SLAs & security review",
-      "Quarterly strategy sessions",
-    ],
-    highlighted: false,
-  },
-];
+export interface PricingTier {
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  highlighted?: boolean;
+}
 
-export function PricingSection() {
+interface PricingSectionProps {
+  title: string;
+  titleHighlight: string;
+  subtitle: string;
+  tiers: PricingTier[];
+  note?: string;
+  className?: string;
+}
+
+// Reusable pricing block — instantiated once per service category (see
+// src/data/pricing.ts) so each category's tiers, ranges, and feature lists
+// are scoped to what that category actually includes, instead of one
+// generic pricing table for the whole business.
+export function PricingSection({ title, titleHighlight, subtitle, tiers, note, className }: PricingSectionProps) {
   return (
-    <section className="py-24">
+    <section className={cn("py-24", className)}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Simple, <span className="gradient-text">Transparent Pricing</span>
+            {title} <span className="gradient-text">{titleHighlight}</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Every project starts with a free audit, so you'll know your exact investment before committing.
-            Ranges below are a starting point.
-          </p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
@@ -81,7 +55,7 @@ export function PricingSection() {
               <h3 className="font-display text-xl font-semibold mb-2">{tier.name}</h3>
               <p className="text-sm text-muted-foreground mb-6">{tier.description}</p>
               <div className="mb-6">
-                <span className="font-display text-4xl font-bold">{tier.price}</span>
+                <span className="font-display text-3xl sm:text-4xl font-bold">{tier.price}</span>
                 <span className="text-muted-foreground text-sm ml-2">{tier.period}</span>
               </div>
               <ul className="space-y-3 mb-8 flex-1">
@@ -98,6 +72,10 @@ export function PricingSection() {
             </div>
           ))}
         </div>
+
+        {note && (
+          <p className="text-xs text-muted-foreground text-center max-w-2xl mx-auto mt-8">{note}</p>
+        )}
       </div>
     </section>
   );

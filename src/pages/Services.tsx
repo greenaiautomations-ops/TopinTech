@@ -5,6 +5,14 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PricingSection } from "@/components/PricingSection";
+import {
+  itSupportPricing,
+  itSupportNote,
+  aiAutomationPricing,
+  aiAutomationNote,
+  webDevPricing,
+  webDevNote,
+} from "@/data/pricing";
 import { FAQSection } from "@/components/FAQSection";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -354,6 +362,12 @@ const categoryData = [
   },
 ];
 
+const pricingByCategory: Record<string, { tiers: typeof itSupportPricing; note: string }> = {
+  "it-support": { tiers: itSupportPricing, note: itSupportNote },
+  "ai-automation": { tiers: aiAutomationPricing, note: aiAutomationNote },
+  "web-app-dev": { tiers: webDevPricing, note: webDevNote },
+};
+
 const allServices = categoryData.flatMap((cat) => cat.services.map((s) => ({ ...s, categoryId: cat.id })));
 
 const Services = () => {
@@ -515,15 +529,24 @@ const Services = () => {
                         </TabsContent>
                       ))}
                     </Tabs>
+
+                    {/* Pricing for this category */}
+                    <div className="mt-8">
+                      <PricingSection
+                        title="Simple, Transparent"
+                        titleHighlight="Pricing"
+                        subtitle={`Every project starts with a free audit, so you'll know your exact investment before committing. Ranges below are a starting point for ${cat.title}.`}
+                        tiers={pricingByCategory[cat.id].tiers}
+                        note={pricingByCategory[cat.id].note}
+                        className="py-0"
+                      />
+                    </div>
                   </TabsContent>
                 ))}
               </Tabs>
             </div>
           </div>
         </section>
-
-        {/* Pricing */}
-        <PricingSection />
 
         {/* FAQ */}
         <FAQSection />

@@ -4,15 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PricingSection } from "@/components/PricingSection";
-import {
-  itSupportPricing,
-  itSupportNote,
-  aiAutomationPricing,
-  aiAutomationNote,
-  webDevPricing,
-  webDevNote,
-} from "@/data/pricing";
+import { ServicePricingCard } from "@/components/ServicePricingCard";
 import { FAQSection } from "@/components/FAQSection";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -41,10 +33,14 @@ import {
 
 // Business is organized into three top-level categories. Each category has
 // its own set of services, and each service keeps the existing detailed
-// shape (categories/features, real-world-style use cases, benefit chips).
-// IT Support Services use cases below are illustrative examples in the style
-// of what similar MSPs (managed service providers) advertise — replace with
-// your own real client results as you collect them.
+// shape (categories/features, real-world-style use cases, benefit chips)
+// PLUS its own `pricing` package — priced individually per service rather
+// than one shared price table per category, per the site owner's request.
+// IT Support Services use cases and all pricing figures below are
+// illustrative, grounded in 2025/2026 market research (managed IT services,
+// residential tech support, AI agency, and EU freelance/agency dev rate
+// benchmarks) and adjusted for a lean SMB-focused agency in the German
+// market — replace with your own real numbers as you price actual projects.
 const categoryData = [
   {
     id: "it-support",
@@ -95,6 +91,16 @@ const categoryData = [
           { icon: ShieldCheck, text: "Your data backed up & protected" },
           { icon: Smartphone, text: "Everything controlled from your phone" },
         ],
+        pricing: {
+          price: "€89",
+          period: "per visit",
+          features: [
+            "Or €29/month unlimited remote support plan",
+            "Windows, software & peripheral setup",
+            "Data backup, recovery & anti-virus",
+            "Smart device & smart home setup",
+          ],
+        },
       },
       {
         id: "corporate-it",
@@ -139,6 +145,16 @@ const categoryData = [
           { icon: ShieldCheck, text: "Enterprise-grade protection & compliance" },
           { icon: Clock, text: "Minimal disruption during rollouts" },
         ],
+        pricing: {
+          price: "€45",
+          period: "/user/month",
+          features: [
+            "Company-wide deployment & onboarding",
+            "Enterprise anti-virus & mobile device management",
+            "Office 365 / Google Workspace administration",
+            "Volume discounts available for larger teams",
+          ],
+        },
       },
       {
         id: "helpdesk",
@@ -169,6 +185,16 @@ const categoryData = [
           { icon: Users, text: "Dedicated support team" },
           { icon: TrendingUp, text: "Faster resolution times" },
         ],
+        pricing: {
+          price: "€35",
+          period: "/user/month",
+          features: [
+            "Unlimited remote helpdesk tickets",
+            "Onboarding & offboarding included",
+            "Software & license management",
+            "No long-term contract required",
+          ],
+        },
       },
       {
         id: "cloud",
@@ -199,6 +225,16 @@ const categoryData = [
           { icon: DollarSign, text: "Lower cloud spend" },
           { icon: Clock, text: "Zero-downtime migration" },
         ],
+        pricing: {
+          price: "€2,500–8,000",
+          period: "one-time migration",
+          features: [
+            "Then €150–400/month ongoing management",
+            "Infrastructure assessment & migration plan",
+            "Multi-cloud support (AWS, Azure, GCP)",
+            "Automated backups & disaster recovery",
+          ],
+        },
       },
     ],
   },
@@ -228,6 +264,16 @@ const categoryData = [
           { icon: DollarSign, text: "Reduce costs by 30–50%" },
           { icon: BarChart3, text: "Increase efficiency by 2–3x" },
         ],
+        pricing: {
+          price: "€1,800–3,500",
+          period: "setup",
+          features: [
+            "Then €250–500/month per AI team",
+            "Custom-trained on your business data",
+            "Marketing, Finance, or HR AI team",
+            "Ongoing tuning & support included",
+          ],
+        },
       },
       {
         id: "voice",
@@ -248,6 +294,16 @@ const categoryData = [
           { icon: DollarSign, text: "Save €2,000–€5,000/month on staff" },
           { icon: Clock, text: "Instant response time" },
         ],
+        pricing: {
+          price: "€2,500–6,000",
+          period: "setup",
+          features: [
+            "Then €300–800/month per voice agent",
+            "24/7 AI receptionist or outbound agent",
+            "Appointment booking & lead follow-up",
+            "Call analytics & reporting",
+          ],
+        },
       },
       {
         id: "automation",
@@ -269,6 +325,16 @@ const categoryData = [
           { icon: TrendingUp, text: "Scalable systems" },
           { icon: ArrowRight, text: "Faster growth" },
         ],
+        pricing: {
+          price: "€1,500–4,000",
+          period: "per workflow",
+          features: [
+            "Custom quote for multi-workflow builds",
+            "Lead intake → CRM automation",
+            "Booking, payments & reporting flows",
+            "Custom internal tools (\"vibe coding\")",
+          ],
+        },
       },
       {
         id: "media",
@@ -288,6 +354,16 @@ const categoryData = [
           { icon: Clock, text: "Faster content creation" },
           { icon: DollarSign, text: "Massive cost savings" },
         ],
+        pricing: {
+          price: "€500–1,500",
+          period: "/month",
+          features: [
+            "Product & social media creatives",
+            "Promo videos & AI avatars",
+            "Revisions included within plan",
+            "Cancel or change plan anytime",
+          ],
+        },
       },
       {
         id: "consultancy",
@@ -307,6 +383,16 @@ const categoryData = [
           { icon: Building, text: "Secure setup" },
           { icon: TrendingUp, text: "Long-term ROI" },
         ],
+        pricing: {
+          price: "€2,000–5,000",
+          period: "audit package",
+          features: [
+            "Or €150/hour for ad-hoc consulting",
+            "Full AI readiness audit",
+            "Tool selection & automation roadmap",
+            "Implementation guidance included",
+          ],
+        },
       },
     ],
   },
@@ -336,6 +422,16 @@ const categoryData = [
           { icon: TrendingUp, text: "Measurable growth" },
           { icon: DollarSign, text: "Cost-effective builds" },
         ],
+        pricing: {
+          price: "€2,000–15,000",
+          period: "one-time",
+          features: [
+            "Business websites from €2,000",
+            "E-commerce & web apps from €7,000",
+            "3 months maintenance included",
+            "Then ~€50–200/month hosting & support",
+          ],
+        },
       },
       {
         id: "mobileapps",
@@ -357,16 +453,20 @@ const categoryData = [
           { icon: Users, text: "Better engagement" },
           { icon: TrendingUp, text: "Built to scale" },
         ],
+        pricing: {
+          price: "€20,000+",
+          period: "starting at",
+          features: [
+            "Native iOS & Android or cross-platform",
+            "Progressive web apps from €12,000",
+            "Scoped after a requirements review",
+            "Ongoing maintenance available",
+          ],
+        },
       },
     ],
   },
 ];
-
-const pricingByCategory: Record<string, { tiers: typeof itSupportPricing; note: string }> = {
-  "it-support": { tiers: itSupportPricing, note: itSupportNote },
-  "ai-automation": { tiers: aiAutomationPricing, note: aiAutomationNote },
-  "web-app-dev": { tiers: webDevPricing, note: webDevNote },
-};
 
 const allServices = categoryData.flatMap((cat) => cat.services.map((s) => ({ ...s, categoryId: cat.id })));
 
@@ -402,7 +502,7 @@ const Services = () => {
         <title>Our Services - Top in Tech | IT Support, AI Automation & App Development</title>
         <meta
           name="description"
-          content="IT Support Services, AI Automations & Agents, and Web & App Development. Explore our full range of technology solutions for small and medium businesses."
+          content="IT Support Services, AI Automations & Agents, and Web & App Development. Explore our full range of technology solutions and pricing for small and medium businesses."
         />
       </Helmet>
       <Layout>
@@ -517,7 +617,7 @@ const Services = () => {
                             </div>
 
                             {/* Benefits */}
-                            <div className="flex flex-wrap gap-4 justify-center">
+                            <div className="flex flex-wrap gap-4 justify-center mb-12">
                               {service.benefits.map((benefit) => (
                                 <div key={benefit.text} className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border">
                                   <benefit.icon className="w-4 h-4 text-primary" />
@@ -525,22 +625,13 @@ const Services = () => {
                                 </div>
                               ))}
                             </div>
+
+                            {/* Pricing for this specific service */}
+                            <ServicePricingCard {...service.pricing} />
                           </Reveal>
                         </TabsContent>
                       ))}
                     </Tabs>
-
-                    {/* Pricing for this category */}
-                    <div className="mt-8">
-                      <PricingSection
-                        title="Simple, Transparent"
-                        titleHighlight="Pricing"
-                        subtitle={`Every project starts with a free audit, so you'll know your exact investment before committing. Ranges below are a starting point for ${cat.title}.`}
-                        tiers={pricingByCategory[cat.id].tiers}
-                        note={pricingByCategory[cat.id].note}
-                        className="py-0"
-                      />
-                    </div>
                   </TabsContent>
                 ))}
               </Tabs>

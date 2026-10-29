@@ -3,26 +3,47 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type",
 };
 
-const NOTIFY_EMAIL = "greenaiautomations@gmail.com";
+const NOTIFY_EMAIL = "contact@topintech.com";
 
 // TODO: once a domain is verified in Resend (Domains tab in the Resend
-// dashboard), change this to something like "Top in Tech <hello@yourdomain.com>".
+// dashboard), set FROM_EMAIL to "Top in Tech <contact@topintech.com>".
 // Until then, Resend's shared "onboarding@resend.dev" sender works but Resend
 // may restrict delivery to only the email address on your Resend account —
 // verify a domain before relying on this for real customer emails.
-const FROM_EMAIL = "Top in Tech <onboarding@resend.dev>";
+const FROM_EMAIL =
+  Deno.env.get("FROM_EMAIL") || "Top in Tech <onboarding@resend.dev>";
+const escapeHtml = (value: string) =>
+  value.replace(
+    /[&<>"']/g,
+    (char) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        char
+      ]!,
+  );
 
-async function sendEmail(apiKey: string, to: string, subject: string, html: string) {
+async function sendEmail(
+  apiKey: string,
+  to: string,
+  subject: string,
+  html: string,
+) {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ from: FROM_EMAIL, to: [to], subject, html }),
+    body: JSON.stringify({
+      from: FROM_EMAIL,
+      reply_to: NOTIFY_EMAIL,
+      to: [to],
+      subject,
+      html,
+    }),
   });
   if (!res.ok) {
     const text = await res.text();
@@ -43,17 +64,34 @@ serve(async (req) => {
   try {
     const body = await req.json();
     const { name, email, company, service, message } = body;
+    const german = body.language === "de";
 
-    if (!name || !email) {
+    if (
+      typeof name !== "string" ||
+      !name.trim() ||
+      name.length > 150 ||
+      typeof email !== "string" ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+      email.length > 254 ||
+      (company != null &&
+        (typeof company !== "string" || company.length > 200)) ||
+      (service != null &&
+        (typeof service !== "string" || service.length > 200)) ||
+      (message != null &&
+        (typeof message !== "string" || message.length > 5000))
+    ) {
       return new Response(
         JSON.stringify({ error: "Name and email are required." }),
-        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 400 }
+        {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+          status: 400,
+        },
       );
     }
 
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_ANON_KEY") ?? ""
+      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
     );
 
     const { error: dbError } = await supabase.from("contact_leads").insert({
@@ -68,24 +106,34 @@ serve(async (req) => {
       console.error("Failed to insert contact lead:", dbError.message);
       return new Response(
         JSON.stringify({ error: `Database error: ${dbError.message}` }),
-        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
+        {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+          status: 500,
+        },
       );
     }
 
+    const safeName = escapeHtml(name);
+    const safeCompany = escapeHtml(company || "—");
+    const safeService = escapeHtml(service || "—");
+    const safeMessage = escapeHtml(message || "");
+    const safeEmail = escapeHtml(email);
     const resendKey = Deno.env.get("RESEND_API_KEY");
     if (resendKey) {
-      await Promise.all([
+      await Promise.allSettled([
         sendEmail(
           resendKey,
           email,
-          "We got your message — Top in Tech",
+          german
+            ? "Ihre Anfrage ist eingegangen — Top in Tech"
+            : "We received your enquiry — Top in Tech",
           `<div style="font-family:sans-serif;max-width:480px;margin:0 auto">
-            <h2 style="color:#3f7d2c">Thanks for reaching out, ${name}!</h2>
-            <p>We received your message and will get back to you within 24 hours with your free AI automation audit.</p>
-            ${service ? `<p><strong>Service of interest:</strong> ${service}</p>` : ""}
-            <p style="white-space:pre-wrap;color:#444;background:#f6f6f6;padding:12px;border-radius:8px">${message || ""}</p>
-            <p style="color:#999;font-size:12px;margin-top:32px">Top in Tech · Bahnhofstraße 36, 35037 Marburg, Germany</p>
-          </div>`
+            <h2 style="color:#1f6fff">${german ? `Vielen Dank für Ihre Anfrage, ${safeName}!` : `Thank you for getting in touch, ${safeName}!`}</h2>
+            <p>${german ? "Wir haben Ihre Nachricht erhalten. Unser Team prüft Ihre Anfrage und meldet sich bei Ihnen, um die nächsten Schritte zu besprechen." : "We have received your message. Our team will review your enquiry and get in touch to discuss the next steps."}</p>
+            ${service ? `<p><strong>${german ? "Gewünschte Leistung" : "Service of interest"}:</strong> ${safeService}</p>` : ""}
+            <p style="white-space:pre-wrap;color:#444;background:#f6f6f6;padding:12px;border-radius:8px">${safeMessage}</p>
+            <p style="color:#999;font-size:12px;margin-top:32px">Top in tech Ltd · contact@topintech.com</p>
+          </div>`,
         ),
         sendEmail(
           resendKey,
@@ -94,29 +142,30 @@ serve(async (req) => {
           `<div style="font-family:sans-serif;max-width:480px;margin:0 auto">
             <h2>New contact lead</h2>
             <table style="width:100%;border-collapse:collapse">
-              <tr><td style="padding:6px 0;color:#666">Name</td><td style="padding:6px 0;font-weight:600">${name}</td></tr>
-              <tr><td style="padding:6px 0;color:#666">Email</td><td style="padding:6px 0;font-weight:600">${email}</td></tr>
-              <tr><td style="padding:6px 0;color:#666">Company</td><td style="padding:6px 0;font-weight:600">${company || "—"}</td></tr>
-              <tr><td style="padding:6px 0;color:#666">Service</td><td style="padding:6px 0;font-weight:600">${service || "—"}</td></tr>
+              <tr><td style="padding:6px 0;color:#666">Name</td><td style="padding:6px 0;font-weight:600">${safeName}</td></tr>
+              <tr><td style="padding:6px 0;color:#666">Email</td><td style="padding:6px 0;font-weight:600">${safeEmail}</td></tr>
+              <tr><td style="padding:6px 0;color:#666">Company</td><td style="padding:6px 0;font-weight:600">${safeCompany}</td></tr>
+              <tr><td style="padding:6px 0;color:#666">Service</td><td style="padding:6px 0;font-weight:600">${safeService}</td></tr>
             </table>
-            <p style="white-space:pre-wrap;color:#444;background:#f6f6f6;padding:12px;border-radius:8px">${message || ""}</p>
-          </div>`
+            <p style="white-space:pre-wrap;color:#444;background:#f6f6f6;padding:12px;border-radius:8px">${safeMessage}</p>
+          </div>`,
         ),
       ]);
     } else {
       console.warn("RESEND_API_KEY not set — skipping confirmation emails.");
     }
 
-    return new Response(
-      JSON.stringify({ success: true }),
-      { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 }
-    );
+    return new Response(JSON.stringify({ success: true }), {
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      status: 200,
+    });
   } catch (error: unknown) {
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
     console.error("Error handling contact submission:", errorMessage);
-    return new Response(
-      JSON.stringify({ error: errorMessage }),
-      { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
-    );
+    return new Response(JSON.stringify({ error: errorMessage }), {
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      status: 500,
+    });
   }
 });

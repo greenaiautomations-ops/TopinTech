@@ -6,7 +6,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const NOTIFY_EMAIL = "greenaiautomations@gmail.com";
+const NOTIFY_EMAIL = "contact@topintech.com";
 
 // TODO: once a domain is verified in Resend (Domains tab in the Resend
 // dashboard), change this to something like "Top in Tech <bookings@yourdomain.com>".
@@ -85,7 +85,7 @@ serve(async (req) => {
           email,
           "Your Free AI Audit Call is booked — Top in Tech",
           `<div style="font-family:sans-serif;max-width:480px;margin:0 auto">
-            <h2 style="color:#3f7d2c">Booking received, ${name}!</h2>
+            <h2 style="color:#1f6fff">Booking received, ${name}!</h2>
             <p>Thanks for booking a free AI audit call with Top in Tech. Here's what you requested:</p>
             <table style="width:100%;border-collapse:collapse;margin:16px 0">
               <tr><td style="padding:6px 0;color:#666">Date</td><td style="padding:6px 0;font-weight:600">${preferred_date}</td></tr>
@@ -93,7 +93,7 @@ serve(async (req) => {
               ${company ? `<tr><td style="padding:6px 0;color:#666">Company</td><td style="padding:6px 0;font-weight:600">${company}</td></tr>` : ""}
             </table>
             <p>We'll confirm this slot within 24 hours. If you need to change anything, just reply to this email or reach us on WhatsApp.</p>
-            <p style="color:#999;font-size:12px;margin-top:32px">Top in Tech · Bahnhofstraße 36, 35037 Marburg, Germany</p>
+            <p style="color:#999;font-size:12px;margin-top:32px">Top in tech Ltd · contact@topintech.com</p>
           </div>`
         ),
         sendEmail(
